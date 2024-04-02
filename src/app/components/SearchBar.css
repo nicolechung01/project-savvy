@@ -1,0 +1,20 @@
+.form {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.input {
+    width: 40vw;
+    background-color: white;
+    outline: black solid 2px;
+    border-radius: 20px;
+    height: 40px;
+    padding: 10px;
+}
+.submit {
+    outline: black solid 2px;
+    color: black;
+    border-radius: 10px;
+    width: 50px;
+    padding: 5px;
+    border: none;
+}
