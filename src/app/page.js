@@ -1,15 +1,19 @@
 import Header from "./components/Header/Header.js"
-import Categories from "./components/Categories.js"
-import Cover from "./components/Cover.js"
-import styles from "./page.module.css";
+import Category from "./components/Category.js"
+import Cover from "./components/Cover/Cover.js"
+import styles from "./Home.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className="main">
       <Header />
       <div className="content">
         <Cover />
-        <Categories />
+        <div className="category-main-container">
+          <Category title="Men's" />
+          <Category title="Women's" />
+          <Category title="Children's" />
+        </div>
       </div>
     </main>
   );

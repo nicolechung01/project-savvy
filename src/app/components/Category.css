@@ -1,0 +1,19 @@
+.category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-img {
+    width: 370px;
+    height: 210px;
+}
+
+.category-title {
+    display: flex;
+    z-index: 5;
+    position: relative;
+    top: -100px; 
+    width: 300px;
+    justify-content: center;
+}

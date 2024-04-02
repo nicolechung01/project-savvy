@@ -1,0 +1,8 @@
+.main {
+    margin: 30px;
+}
+.category-main-container {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+}

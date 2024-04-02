@@ -6,7 +6,7 @@ import styles from "./Header.css"
 
 function Header() {
     return (
-        <header className="container">
+        <header className="header-container">
             <h1 className="logo">savvy</h1>
             <SearchBar className="searchBar" />
             <nav className="nav">
