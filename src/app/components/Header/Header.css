@@ -1,3 +1,5 @@
+
+
 .header-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -8,10 +10,12 @@
 
 .logo {
     font-size: 40px;
-    color: blue;
+    color: rgb(27, 35, 61);
+    font-family: 'Unbounded';
 }
 
 .nav {
     display: flex;
     justify-content: right;
+    gap: 30px;
 }

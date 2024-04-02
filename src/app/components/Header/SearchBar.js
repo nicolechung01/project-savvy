@@ -5,7 +5,7 @@ function SearchBar() {
         <form className="form">
           <input className="input"
           type="text"
-          placeholder="Search..."
+          placeholder="Search"
           />
         </form>
     )

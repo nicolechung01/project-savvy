@@ -38,6 +38,17 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+  
+}
+
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/assets/Unbounded/Unbounded-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/Poppins/Poppins-Regular.ttf');
 }
 
 @media (prefers-color-scheme: light) {

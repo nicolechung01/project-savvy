@@ -10,9 +10,9 @@ export default function Home() {
       <div className="content">
         <Cover />
         <div className="category-main-container">
-          <Category title="Men's" />
-          <Category title="Women's" />
-          <Category title="Children's" />
+          <Category src="/assets/WOMENS.png" title="WOMEN'S" />
+          <Category src="/assets/MENS.png" title="MEN'S" />
+          <Category src="/assets/HOME.png" title="HOME" />
         </div>
       </div>
     </main>

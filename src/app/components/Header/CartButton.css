@@ -1,10 +1,8 @@
-.button {
-    outline: black solid 2px;
-    color: black;
-    border-radius: 10px;
-    width: 50px;
-    padding: 5px;
+.cart-button {
     border: none;
-    height: fit-content;
-    margin: 0 10px 0 10px;
+    outline: none;
+    background-color: transparent;
+}
+.bag-img {
+    height: 30px;
 }

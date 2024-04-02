@@ -1,8 +1,8 @@
-
+import styles from "./Cover.css"
 
 function SignInButton() {
     return (
-        <button className="button">Sign In</button>
+        <button className="cover-button">Sign In</button>
     )
 }
 export default SignInButton;

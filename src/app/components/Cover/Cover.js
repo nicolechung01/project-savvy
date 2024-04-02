@@ -5,10 +5,12 @@ import styles from "./Cover.css"
 function Cover() {
     return (
         <div className="cover-container" >
-            <img className="img" src="https://htmlcolorcodes.com/assets/images/colors/gray-color-solid-background-1920x1080.png" />
+            <div className="cover-img-container">
+            <img className="cover-img" src="/assets/cover-img.jpg" />
+            </div>
             <div className="button-container">
-                <SignInButton className="cover-button" />
-                <LogInButton className="cover-button" />
+                <SignInButton />
+                <LogInButton />
             </div>
         </div>
     )
