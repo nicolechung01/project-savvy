@@ -19,4 +19,12 @@
     justify-content: center;
     font-family: 'Unbounded';
     font-weight: 600;
+    font-size: 30px;
+    transition: font-size 0.1;
+}
+
+.category-container:hover {
+    .category-title {
+        font-size: 35px;
+    }
 }
