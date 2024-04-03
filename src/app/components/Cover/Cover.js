@@ -4,7 +4,8 @@ import styles from "./Cover.css"
 import { useRouter } from 'next/navigation'
 
 
-function Cover() {
+function Cover({logIn}) {
+
     return (
         <div className="cover-container" >
             <div className="cover-img-container">
@@ -12,7 +13,7 @@ function Cover() {
             </div>
             <div className="button-container">
                 <SignUpButton />
-                <LogInButton onClick={() => Router.push('/login')} />
+                <LogInButton />
             </div>
         </div>
     )
