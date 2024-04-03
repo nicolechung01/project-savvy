@@ -1,6 +1,8 @@
 "use client";
 import {useState} from 'react';
 import ItemsList from "../components/ItemsList.js";
+import Header from "../components/Header/Header.js"
+import styles from '../App.css';
 
 export default function Men() {
 
@@ -11,9 +13,10 @@ export default function Men() {
     };
 
     return (
-        <div>
+        <main className="main">
+        <Header />
             <h1 style={{color: "black"}}>Men's</h1>
             <ItemsList items={mensList} />
-        </div>
+        </main>
     )
 }

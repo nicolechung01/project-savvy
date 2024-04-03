@@ -1,6 +1,8 @@
 "use client";
 import {useState} from 'react';
 import ItemsList from "../components/ItemsList.js";
+import Header from "../components/Header/Header.js"
+import styles from '../App.css';
 
 export default function Home() {
 
@@ -11,9 +13,10 @@ export default function Home() {
     };
 
     return (
-        <div>
+        <main className="main">
+        <Header />
             <h1 style={{color: "black"}}>Home</h1>
             <ItemsList items={homeList} />
-        </div>
+        </main>
     )
 }

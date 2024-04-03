@@ -1,6 +1,8 @@
 "use client";
 import {useState} from 'react';
 import ItemsList from "../components/ItemsList.js";
+import Header from '../components/Header/Header.js';
+import styles from '../App.css';
 
 export default function Women() {
 
@@ -11,10 +13,12 @@ export default function Women() {
     };
 
     return (
-        <div>
+        <main className="main">
+
+            <Header />
             <h1 style={{color: "black"}}>Women's</h1>
             <ItemsList items={womensList} />
-        </div>
+        </main>
         
     )
 }
