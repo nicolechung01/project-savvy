@@ -1,6 +1,8 @@
 import SignInButton from "./SignInButton";
 import LogInButton from "./LogInButton";
 import styles from "./Cover.css"
+import { useRouter } from 'next/navigation'
+
 
 function Cover() {
     return (
@@ -10,7 +12,7 @@ function Cover() {
             </div>
             <div className="button-container">
                 <SignInButton />
-                <LogInButton />
+                <LogInButton onClick={() => Router.push('/login')} />
             </div>
         </div>
     )

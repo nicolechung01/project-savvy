@@ -21,24 +21,30 @@
 }
 
 .button-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     z-index: 5;
     position: relative;
-    top: -100px; 
-    width: 500px;
-    justify-content: space-between;
+    top: -100px;
+    gap: 200px;
 }
 
 .cover-button {
+    display: flex;
     font-family: 'Poppins';
     font-size: 25px;
     color: rgb(27, 35, 61);
     border-radius: 25px;
     width: 150px;
-    padding: 5px;
+    padding: 5px 20px 5px 20px;;
     border: none;
     height: fit-content;
     margin: 0 10px 0 10px;
     background-color: rgba(225, 223, 219, 0.9);
-    
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.cover-button:hover {
+    color: white;
 }
