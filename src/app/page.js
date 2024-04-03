@@ -4,9 +4,9 @@ import { useRouter } from 'next/navigation'
 import Header from "./components/Header/Header.js"
 import Category from "./components/Category.js"
 import Cover from "./components/Cover/Cover.js"
-import styles from "./Home.css";
+import styles from "./App.css";
 
-export default function Home() {
+export default function App() {
 
   const [logIn, setLogIn] = useState(false);
 
