@@ -1,4 +1,4 @@
-import SignInButton from "./SignUpButton";
+import SignUpButton from "./SignUpButton";
 import LogInButton from "./LogInButton";
 import styles from "./Cover.css"
 import { useRouter } from 'next/navigation'
