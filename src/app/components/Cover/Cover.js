@@ -1,4 +1,4 @@
-import SignInButton from "./SignInButton";
+import SignInButton from "./SignUpButton";
 import LogInButton from "./LogInButton";
 import styles from "./Cover.css"
 import { useRouter } from 'next/navigation'
@@ -11,7 +11,7 @@ function Cover() {
             <img className="cover-img" src="/assets/cover-img.jpg" />
             </div>
             <div className="button-container">
-                <SignInButton />
+                <SignUpButton />
                 <LogInButton onClick={() => Router.push('/login')} />
             </div>
         </div>
