@@ -1,0 +1,16 @@
+.logo-container{
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: black;
+    font-family: 'Poppins';
+    font-size: 25px;
+    font-weight: 400;
+}
