@@ -1,8 +1,20 @@
 .main {
-    margin: 30px;
+    margin: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content {
+    width: 90vw;
 }
 .category-main-container {
     display: flex;
     justify-content: center;
     gap: 45px;
+}
+
+.title  {
+    font-family: 'Poppins';
+    color: black;
 }

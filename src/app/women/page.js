@@ -14,10 +14,11 @@ export default function Women() {
 
     return (
         <main className="main">
-
             <Header />
-            <h1 style={{color: "black"}}>Women's</h1>
-            <ItemsList items={womensList} />
+            <div className='content'>
+                <h1 className='title'>Women's</h1>
+                <ItemsList items={womensList} />
+            </div>
         </main>
         
     )
