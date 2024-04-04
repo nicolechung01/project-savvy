@@ -1,12 +1,12 @@
-.main {
-    margin: 30px;
+div {
+    width: 100%;
 }
 .banner {
     background-color: rgba(225, 223, 219, 0.9);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px;
+    padding: 30px;
 }
 .profilePicture {
     width: 250px;
@@ -14,11 +14,13 @@
     border-radius: 50%;
 }
 .pictureArea {
-    margin-right: 30px;
+    display: flex;
+    justify-content: right;
+    margin-right: 50px;
 }
 .userInfo {
-    flex: 1;
     font-family: 'Poppins';
+    margin-right: auto;
 }
 h1 {
     font-size: 50px;
@@ -44,6 +46,7 @@ h1 {
     background-color: white;
 }
 .logout {
-    margin-left: 20px;
+    display: flex;
+    justify-content: right;
     margin-bottom: auto;
 }

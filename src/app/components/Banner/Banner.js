@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 
 function Banner() {
     return (
-        <div className="main">
+        <div>
             <div className="banner">
                 <div className="pictureArea">
                     <img src="/assets/profilepic.jpeg" alt="Profile Picture" className="profilePicture" />

@@ -1,5 +1,5 @@
 "use client";
-import styles from '../App.css';
+import styles from './profile.css';
 import Header from "../components/Header/Header"
 import Banner from "../components/Banner/Banner"
 
