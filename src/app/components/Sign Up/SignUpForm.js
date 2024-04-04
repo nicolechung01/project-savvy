@@ -1,8 +1,24 @@
 import styles from "../../components/Log In/LogInForm.css"
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react';
+import Link from 'next/link';
 
 function SignUpForm() {
+    
+    const router = useRouter();
+
+    const handleSignup = (e) => {
+        e.preventDefault();
+
+        router.push('../profile');
+    };
+
+    useEffect(() => {
+
+    }, []);
+    
     return (
-        <form>
+        <form onSubmit={handleSignup}>
             <div className="form-container">
                 <div className="label-container">
                     <label className="form-label">Name</label>
@@ -26,7 +42,9 @@ function SignUpForm() {
                     id="password"
                 />
                 <div>
-                    <button className="form-button" type="submit">Sign Up</button>
+                    <button className="form-button" type="submit">
+                        <Link href='../profile'>Sign Up</Link>
+                    </button>
                 </div>
             </div>
         </form>
