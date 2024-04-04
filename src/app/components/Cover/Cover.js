@@ -11,7 +11,7 @@ function Cover() {
             <img className="cover-img" src="/assets/cover-img.jpg" />
             </div>
             <div className="button-container">
-                <SignUpButton />
+                <SignUpButton onClick={() => Router.push("/signup")}/>
                 <LogInButton onClick={() => Router.push('/login')} />
             </div>
         </div>
