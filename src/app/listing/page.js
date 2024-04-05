@@ -56,9 +56,10 @@ export default function Listing() {
                             <h3 className='subcategory'>Condition</h3>
                                 <select id="dropdown" name="dropdown">
                                     <option hidden selected value></option>
-                                    <option value="option1">Option 1</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
+                                    <option value="option1">New</option>
+                                    <option value="option2">Used - Great</option>
+                                    <option value="option3">Used - Good</option>
+                                    <option value="option3">Used - Fair</option>
                                 </select>
                         </div>
                     </div>
