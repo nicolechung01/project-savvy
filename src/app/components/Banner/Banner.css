@@ -1,0 +1,52 @@
+div {
+    width: 100%;
+}
+.banner {
+    background-color: rgba(225, 223, 219, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+.profilePicture {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+.pictureArea {
+    display: flex;
+    justify-content: right;
+    margin-right: 50px;
+}
+.userInfo {
+    font-family: 'Poppins';
+    margin-right: auto;
+}
+h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.logoutButton {
+    display: flex;
+    font-family: 'Poppins';
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+    width: 130px;
+    padding: 5px 20px 5px 20px;
+    border: none;
+    height: fit-content;
+    margin: 0 10px 0 10px;
+    background-color: rgb(0, 0, 0);
+    justify-content: center;
+    transition: color 0.3s;
+}
+.logoutButton:hover {
+    color: black;
+    background-color: white;
+}
+.logout {
+    display: flex;
+    justify-content: right;
+    margin-bottom: auto;
+}

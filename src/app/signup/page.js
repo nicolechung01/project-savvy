@@ -1,3 +1,4 @@
+"use client";
 import Logo from "../components/Header/Logo";
 import SignUpForm from "../components/Sign Up/SignUpForm";
 import styles from "../login/LogInPage.css"
