@@ -1,0 +1,36 @@
+.new-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    flex: 0 1 calc(25% - 20px);
+}
+  
+.new-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+  
+.new-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+  
+.new-item p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.add-items-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+}
