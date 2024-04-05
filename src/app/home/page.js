@@ -8,8 +8,16 @@ export default function Home() {
 
     const [homeList, setHomeList] = useState([
         {
+            id: 5,
             img: '/assets/shoerack.jpg',
             description: 'metal shoerack',
+            size: 'small',
+            condition: 'Used - Good'
+        },
+        {
+            id: 6,
+            img: '/assets/tray.jpg',
+            description: 'license plate tray',
             size: 'small',
             condition: 'Used - Good'
         }
@@ -23,7 +31,10 @@ export default function Home() {
         <main className="main">
             <Header />
             <div className='content'>
-                <h1 className='title'>Home</h1>
+                <div className='subheader-container'>
+                    <h1 className='subheader'>Home</h1>
+                    <p className='result-num'>{homeList.length} results</p>
+                </div>                
                 <ItemsList items={homeList} />
             </div>
         </main>

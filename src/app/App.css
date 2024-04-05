@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: black;
 }
 .content {
     width: 90vw;
@@ -14,7 +15,22 @@
     gap: 45px;
 }
 
-.title  {
-    font-family: 'Poppins';
-    color: black;
+.subheader-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.subheader  {
+    font-family: 'Unbounded';
+    font-weight: 500;
+    font-size: 28px;
+}
+
+.result-num {
+    font-family: 'Inter' sans-serif;
+    font-size: 18px;
+    color: gray;
+    margin-left: 20px;
 }

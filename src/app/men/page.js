@@ -8,8 +8,16 @@ export default function Men() {
 
     const [mensList, setMensList] = useState([
         {
+            id: 3,
             img: '/assets/mensweatshirt.jpg',
-            description: 'green long sleeve shirt',
+            description: 'brown sweatshirt',
+            size: 'large',
+            condition: 'Used - Good'
+        },
+        {
+            id: 4,
+            img: '/assets/menshorts.jpg',
+            description: 'navy jersey shorts',
             size: 'small',
             condition: 'Used - Good'
         }
@@ -23,7 +31,10 @@ export default function Men() {
         <main className="main">
             <Header />
             <div className='content'>
-                <h1 className='title'>Mens's</h1>
+                <div className='subheader-container'>
+                    <h1 className='subheader'>Mens's</h1>
+                    <p className='result-num'>{mensList.length} results</p>
+                </div>
                 <ItemsList items={mensList} />
             </div>
         </main>

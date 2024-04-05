@@ -8,9 +8,17 @@ export default function Women() {
 
     const [womensList, setWomensList] = useState([
         {
+            id: 1,
             img: '/assets/womenshirt.jpg',
             description: 'green long sleeve shirt',
             size: 'small',
+            condition: 'Used - Good'
+        },
+        {
+            id: 2,
+            img: '/assets/womensjeans.jpg',
+            description: 'white baggy jeans',
+            size: 'medium',
             condition: 'Used - Good'
         }
     ]);
@@ -23,8 +31,13 @@ export default function Women() {
         <main className="main">
             <Header />
             <div className='content'>
-                <h1 className='title'>Women's</h1>
+                <div className='subheader-container'>
+                    <h1 className='subheader'>Women's</h1>
+                    <p className='result-num'>{womensList.length} results</p>
+                </div>
+                <div>
                 <ItemsList items={womensList} />
+                </div>
             </div>
         </main>
         
