@@ -4,7 +4,7 @@
     color: rgb(27, 35, 61);
 }
 .main-container {
-    font-family: 'Poppins';
+    font-family: 'Inter' sans-serif;
     color: black;
     display: flex;
     justify-content: center;
@@ -28,7 +28,8 @@
 }
 
 .subheader {
-    font-weight: 400;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 .subcategory {
@@ -82,11 +83,11 @@ input[type='file'] {
     color: black;
     padding: 10px;
     font-size: 15px;
-    font-family: 'Poppins';
+    font-family: 'Inter' sans-serif;
 }
 
 #dropdown {
-    font-family: 'Poppins';
+    font-family: 'Inter' sans-serif;
     color: black;
     width: 100%;
     height: 35px;

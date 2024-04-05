@@ -14,9 +14,10 @@
 
 .form-label {
     color: rgb(123, 122, 122);
-    font-family: 'Poppins';
+    font-family: 'Inter' sans-serif;
 }
 .form-input {
+    font-family: 'Inter' sans-serif;
     padding-left: 15px;
     font-size: 17px;
     color: black;
@@ -37,7 +38,7 @@
     color: white;
     border-radius: 25px;
     border: none;
-    font-family: 'Poppins';
+    font-family: 'Inter' sans-serif;
     font-size: 20px;
     padding: 5px 10px 5px 10px;
     transition: background-color 0.3s;
