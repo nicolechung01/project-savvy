@@ -6,7 +6,14 @@ import styles from '../App.css';
 
 export default function Men() {
 
-    const [mensList, setMensList] = useState([]);
+    const [mensList, setMensList] = useState([
+        {
+            img: '/assets/mensweatshirt.jpg',
+            description: 'green long sleeve shirt',
+            size: 'small',
+            condition: 'Used - Good'
+        }
+    ]);
 
     const addMensHandler = item => {
         setMensList((prevMensList) => [...prevMensList, item]);
@@ -14,9 +21,11 @@ export default function Men() {
 
     return (
         <main className="main">
-        <Header />
-            <h1 style={{color: "black"}}>Men's</h1>
-            <ItemsList items={mensList} />
+            <Header />
+            <div className='content'>
+                <h1 className='title'>Mens's</h1>
+                <ItemsList items={mensList} />
+            </div>
         </main>
     )
 }

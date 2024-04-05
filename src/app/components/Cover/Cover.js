@@ -4,7 +4,7 @@ import styles from "./Cover.css"
 import { useRouter } from 'next/navigation'
 
 
-function Cover({logIn}) {
+function Cover({loggedIn}) {
 
     return (
         <div className="cover-container" >
@@ -12,8 +12,8 @@ function Cover({logIn}) {
             <img className="cover-img" src="/assets/cover-img.jpg" />
             </div>
             <div className="button-container">
-                <SignUpButton />
-                <LogInButton />
+                {!loggedIn && <SignUpButton />}
+                {!loggedIn && <LogInButton />}
             </div>
         </div>
     )

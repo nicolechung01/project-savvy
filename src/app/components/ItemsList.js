@@ -7,10 +7,12 @@ const ItemsList = ({ items }) => {
     <div className="container">
       <ul>
         {items.map(item => (
-          <Items
-            key={user.id}
-            img={user.img}
-            name={user.name}
+          <Item
+            key={item.id}
+            img={item.img}
+            description={item.description}
+            size={item.size}
+            condition={item.condition}
           />
         ))}
       </ul>

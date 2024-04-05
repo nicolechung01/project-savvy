@@ -3,12 +3,13 @@ import { useRouter } from 'next/navigation'
 import { useEffect } from 'react';
 import Link from 'next/link';
 
-function SignUpForm() {
+function SignUpForm({onSignUp}) {
     
     const router = useRouter();
 
     const handleSignup = (e) => {
         e.preventDefault();
+        onSignUp();
 
         router.push('../profile');
     };

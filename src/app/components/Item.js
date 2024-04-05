@@ -1,13 +1,10 @@
 import React from 'react';
+import styles from './Item.css';
 
 const Item = (props) => {
     return (    
-        <li key={props.id}>
+        <li key={props.id} className='item-container'>
         <img src={props.img} className="item-img" alt={props.name} />
-        <div className="item-info">
-            <h2>{props.name}</h2>
-        
-        </div>
         </li>
     )
 }

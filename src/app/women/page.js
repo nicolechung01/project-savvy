@@ -6,7 +6,14 @@ import styles from '../App.css';
 
 export default function Women() {
 
-    const [womensList, setWomensList] = useState([]);
+    const [womensList, setWomensList] = useState([
+        {
+            img: '/assets/womenshirt.jpg',
+            description: 'green long sleeve shirt',
+            size: 'small',
+            condition: 'Used - Good'
+        }
+    ]);
 
     const addWomensHandler = item => {
         setWomensList((prevWomensList) => [...prevWomensList, item]);

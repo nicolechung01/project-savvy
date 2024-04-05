@@ -6,20 +6,16 @@ import Category from './components/Category.js';
 import Cover from './components/Cover/Cover.js';
 import styles from './App.css';
 
-export default function App() {
+export default function Home() {
 
-  const [logIn, setLogIn] = useState(false);
-
-  const logInHandler = () => {
-    setLogIn(true);
-  }
-
-
+  const router = useRouter();
+    // Retrieve loggedIn state from query parameter
+  const { loggedIn } = router.query || {};
   return (
     <main className="main">
       <Header />
       <div className="content">
-        <Cover />
+        <Cover loggedIn={loggedIn} />
         <div className="category-main-container">
           <Category link=" /women" src="/assets/WOMENS.png" title="WOMEN'S" />
           <Category link=" /men" src="/assets/MENS.png" title="MEN'S" />
