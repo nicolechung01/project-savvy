@@ -12,14 +12,16 @@ export default function Home() {
             img: '/assets/shoerack.jpg',
             description: 'metal shoerack',
             size: 'small',
-            condition: 'Used - Good'
+            condition: 'Used - Good',
+            price: '$15.00'
         },
         {
             id: 6,
             img: '/assets/tray.jpg',
             description: 'license plate tray',
             size: 'small',
-            condition: 'Used - Good'
+            condition: 'Used - Good',
+            price: '$9.00'
         }
     ]);
 

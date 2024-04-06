@@ -14,6 +14,7 @@ const ItemsList = ({ items }) => {
             description={item.description}
             size={item.size}
             condition={item.condition}
+            price={item.price}
           />
         ))}
       </ul>

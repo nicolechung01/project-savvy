@@ -1,12 +1,19 @@
 .item-container {
-    display: inline;
+    display: flex;
+    flex-direction: column;
     height: 250px;
     width: 250px;
     margin: 10px;
 }
+
 .item-img {
     height: 250px;
     width: 250px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+.item-price {
+    font-family: 'Inter' sans-serif;
+
 }

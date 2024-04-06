@@ -1,14 +1,14 @@
 import React from 'react';
 
-import styles from "./NewItem.css"
+import styles from "../Item.css"
 
-const NewItem = ({ item }) => {
+const NewItem = (props) => {
     return (
-        <div className="new-item">
-            <img src={item.img} alt={item.name} />
-            <h3>{item.name}</h3>
-            <p>{item.description}</p>
-        </div>
+        <li className="item-container">
+            <img className="item-img" src={props.img} alt={props.name} />
+            <h3>{props.name}</h3>
+            {/*<p>{props.description}</p>*/}
+        </li>
     );
 };
 

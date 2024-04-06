@@ -12,14 +12,16 @@ export default function Women() {
             img: '/assets/womenshirt.jpg',
             description: 'green long sleeve shirt',
             size: 'small',
-            condition: 'Used - Good'
+            condition: 'Used - Good',
+            price: '$14.00'
         },
         {
             id: 2,
             img: '/assets/womensjeans.jpg',
             description: 'white baggy jeans',
             size: 'medium',
-            condition: 'Used - Good'
+            condition: 'Used - Good',
+            price: '$20.00'
         }
     ]);
 

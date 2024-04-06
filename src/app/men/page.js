@@ -12,14 +12,16 @@ export default function Men() {
             img: '/assets/mensweatshirt.jpg',
             description: 'brown sweatshirt',
             size: 'large',
-            condition: 'Used - Good'
+            condition: 'Used - Good',
+            price: '$20.00'
         },
         {
             id: 4,
             img: '/assets/menshorts.jpg',
             description: 'navy jersey shorts',
             size: 'small',
-            condition: 'Used - Good'
+            condition: 'Used - Good',
+            price: '$11.00'
         }
     ]);
 

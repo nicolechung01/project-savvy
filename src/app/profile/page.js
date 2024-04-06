@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from 'react';
-import styles from './profile.css';
+{/*import styles from './profile.css';*/}
+import styles from '../App.css';
 import Header from "../components/Header/Header"
 import Banner from "../components/Banner/Banner"
 import NewItemsList from "../components/Listing/NewItemsList"
+import ItemsList from '../components/ItemsList';
 
 export default function Home() {
     const initialItems = [
@@ -18,7 +20,7 @@ export default function Home() {
         {
             id: 2,
             name: "Black Running Shoes",
-            img: "/assets/blackshoes.webp",
+            img: "/assets/hoka.jpg",
             description: "Great running shoes from Hoka.",
             price: 50,
             condition: "Used"
@@ -34,12 +36,13 @@ export default function Home() {
     return (
         <main className="main">
             <Header />
-            <div>
+            <div className='content'>
                 <Banner />
-            </div>
-            <div>
-                <NewItemsList items={items} />
+                <div className='subheader-container'>
+                    <h1 className='subheader'>Selling</h1>
+                </div>
+                <ItemsList items={items} />
             </div>
         </main>
     )
-}
+    }

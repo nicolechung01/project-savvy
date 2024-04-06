@@ -1,15 +1,14 @@
 .new-item {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    flex: 0 1 calc(25% - 20px);
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
 }
   
 .new-item img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    display: block; 
+    object-fit: cover;
 }
   
 .new-item h3 {
