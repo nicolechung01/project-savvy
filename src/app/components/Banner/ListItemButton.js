@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import styles from './Banner.css';
 
-function LogOutButton() {
+function ListItemButton() {
     return (
         <button className="button">
-            <Link href='/'>Log Out</Link>
+            <Link href='/listing'>List Item</Link>
         </button>
     )
 }
 
-export default LogOutButton;
+export default ListItemButton;

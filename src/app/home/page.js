@@ -9,6 +9,7 @@ export default function Home() {
     const [homeList, setHomeList] = useState([
         {
             id: 5,
+            name: 'Metal Shoerack',
             img: '/assets/shoerack.jpg',
             description: 'metal shoerack',
             size: 'small',
@@ -17,6 +18,7 @@ export default function Home() {
         },
         {
             id: 6,
+            name: 'License Plate Tray',
             img: '/assets/tray.jpg',
             description: 'license plate tray',
             size: 'small',

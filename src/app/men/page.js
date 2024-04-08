@@ -9,6 +9,7 @@ export default function Men() {
     const [mensList, setMensList] = useState([
         {
             id: 3,
+            name: 'Brown Sweatshirt',
             img: '/assets/mensweatshirt.jpg',
             description: 'brown sweatshirt',
             size: 'large',
@@ -17,6 +18,7 @@ export default function Men() {
         },
         {
             id: 4,
+            name: 'Navy Basketball Shorts',
             img: '/assets/menshorts.jpg',
             description: 'navy jersey shorts',
             size: 'small',

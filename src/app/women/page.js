@@ -8,15 +8,17 @@ export default function Women() {
 
     const [womensList, setWomensList] = useState([
         {
-            id: 1,
+            id: '1',
+            name: 'Green Longsleeve Top',
             img: '/assets/womenshirt.jpg',
-            description: 'green long sleeve shirt',
+            description: 'green long sleeve shirt with flower detail',
             size: 'small',
             condition: 'Used - Good',
             price: '$14.00'
         },
         {
-            id: 2,
+            id: '2',
+            name: 'White Baggy Jeans',
             img: '/assets/womensjeans.jpg',
             description: 'white baggy jeans',
             size: 'medium',

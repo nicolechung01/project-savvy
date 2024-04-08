@@ -1,7 +1,7 @@
 .item-container {
     display: flex;
     flex-direction: column;
-    height: 250px;
+    height: auto;
     width: 250px;
     margin: 10px;
 }
@@ -13,7 +13,17 @@
     border-radius: 10px;
 }
 
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-family: 'Inter' sans-serif;
+    color: black;
+}
+
 .item-price {
     font-family: 'Inter' sans-serif;
-
+    color: black;
 }

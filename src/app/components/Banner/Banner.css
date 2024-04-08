@@ -1,32 +1,44 @@
-div {
-    width: 100%;
-}
+
 .banner {
     background-color: rgba(225, 223, 219, 0.9);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
+    flex-direction: row;
+    width: 90vw;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.profile-disp {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
 }
 .profilePicture {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
 }
 .pictureArea {
     display: flex;
-    justify-content: right;
-    margin-right: 50px;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
 }
 .userInfo {
-    font-family: 'Poppins';
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
 }
-h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
+.username {
+    font-family: 'Unbounded';
+    font-size: 45px;
+    margin: 40px 0 10px 0;
 }
-.logoutButton {
+.bio {
+    font-family: 'Inter' sans-serif;
+    font-size: 18px;
+}
+.button {
     display: flex;
     font-family: 'Inter' sans-serif;
     font-size: 20px;
@@ -41,7 +53,7 @@ h1 {
     justify-content: center;
     transition: color 0.3s;
 }
-.logoutButton:hover {
+.button:hover {
     color: black;
     background-color: white;
 }
@@ -49,4 +61,10 @@ h1 {
     display: flex;
     justify-content: right;
     margin-bottom: auto;
+}
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 50%;
 }

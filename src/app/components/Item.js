@@ -1,11 +1,16 @@
 import React from 'react';
 import styles from './Item.css';
+import Link from 'next/link'
 
-const Item = (props) => {
+const Item = (prop) => {
+    console.log(prop);
     return (    
-        <li key={props.id} className='item-container'>
-            <img src={props.img} className="item-img" alt={props.name} />
-            <p className='item-price'>{props.price}</p>
+        <li className='item-container'>
+                <img src={prop.img} className="item-img" />
+                <div className='item-info'>
+                    <p className='item-name'>{prop.name}</p>
+                    <p className='item-price'>{prop.price}</p>
+                </div>
         </li>
     )
 }

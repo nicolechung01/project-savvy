@@ -4,7 +4,7 @@ import Link from 'next/link';
 function SignUpButton() {
     return (
         <button className="cover-button">
-            <Link href='/signup'>Sign Up</Link>
+            <Link href='/profile'>Sign Up</Link>
         </button>
     )
 }
