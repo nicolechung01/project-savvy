@@ -69,7 +69,7 @@ const AddItem = (props) => {
                     <div className='photo-container'>
                         <div className="uploader">
                             <img className="img-symbol" src='/assets/add-photo.png' style={{height: '30px'}}></img>
-                            <input id="input" type="file" accept="image/*" onChange={(event) => setFormData({ ...formData, img: event.target.value })}/>
+                            <input id="input" name="img" type="file" accept="image/*" onChange={(event) => setFormData({ ...formData, img: event.target.value })}/>
                         </div>
                         <div className="placeholder"></div>
                         <div className="placeholder"></div>
@@ -78,7 +78,7 @@ const AddItem = (props) => {
                 </div>
                 <div className='subsection'>
                     <h3 className='subheader'>Name</h3>
-                    <input id="name-input" type="text" onChange={handleChange}/>
+                    <input id="name-input" name="name" type="text" onChange={handleChange}/>
                 </div>
                 <div className='subsection'>
                     <h2 className='subheader'>Description</h2>
