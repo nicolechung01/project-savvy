@@ -11,6 +11,7 @@
     display: flex;
     flex: row;
     gap: 20px;
+    width: 50%;
 }
 .profilePicture {
     width: 200px;
