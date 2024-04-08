@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styles from '../../listing/Listing.css';
+import { useRouter } from 'next/navigation';
 
 const AddItem = (props) => {
     
+    const router = useRouter();
+
     //storing data
     const [formData, setFormData] = useState({
         name: '',
@@ -41,6 +44,8 @@ const AddItem = (props) => {
         };
         
         props.onAddItem(newItem);
+
+        router.push('../profile');
 
         // Clear the form fields
         setFormData({
