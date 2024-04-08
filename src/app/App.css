@@ -19,13 +19,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 10px;
     margin-bottom: 10px;
 }
 .subheader  {
     font-family: 'Unbounded';
     font-weight: 500;
     font-size: 28px;
+    margin-left: 10px;
 }
 
 .result-num {

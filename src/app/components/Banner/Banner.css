@@ -3,8 +3,9 @@
     background-color: rgba(225, 223, 219, 0.9);
     display: flex;
     padding: 30px;
-    width: 1200px;
+    width: 1280px;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 .profile-disp {
     display: flex;
