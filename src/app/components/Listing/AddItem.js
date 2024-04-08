@@ -45,7 +45,6 @@ const AddItem = (props) => {
         
         props.onAddItem(newItem);
 
-        router.push('../profile');
 
         // Clear the form fields
         setFormData({
@@ -78,6 +77,10 @@ const AddItem = (props) => {
                     </div>        
                 </div>
                 <div className='subsection'>
+                    <h3 className='subheader'>Name</h3>
+                    <input id="name-input" type="text" onChange={handleChange}/>
+                </div>
+                <div className='subsection'>
                     <h2 className='subheader'>Description</h2>
                     <textarea id="description" name="description" onChange={handleChange}/>
                 </div>
@@ -94,7 +97,7 @@ const AddItem = (props) => {
                     </div>
                     <div>
                         <h3 className='subcategory'>Brand</h3>
-                            <input id="info-input" type="text" onChange={handleChange}/>
+                            <input id="brand-input" type="text" onChange={handleChange}/>
                     </div>
                     <div>
                         <h3 className='subcategory'>Size</h3>
@@ -121,7 +124,7 @@ const AddItem = (props) => {
                 </div>
                 <div className='subsection'>
                     <h2 className='subheader'>Item Price</h2>
-                    <input id="info-input" type="text" onChange={handleChange}/>
+                    <input id="price-input" type="text" onChange={handleChange}/>
                 </div>
                 <button className='list-button' type="submit">List Item</button>
             </div>
