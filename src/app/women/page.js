@@ -9,7 +9,7 @@ export default function Women() {
     const [womensList, setWomensList] = useState([
         {
             id: '1',
-            name: 'Green Longsleeve Top',
+            name: 'Green Long Sleeve Top',
             img: '/assets/womenshirt.jpg',
             description: 'green long sleeve shirt with flower detail',
             size: 'small',
