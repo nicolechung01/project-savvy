@@ -2,9 +2,14 @@
 .banner {
     background-color: rgba(225, 223, 219, 0.9);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 30px;
+    width: 1200px;
+    border-radius: 10px;
+}
+.profile-disp {
+    display: flex;
+    flex: row;
+    gap: 20px;
 }
 .profilePicture {
     width: 200px;

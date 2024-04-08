@@ -36,13 +36,12 @@ export default function Home() {
     return (
         <main className="main">
             <Header />
+            <Banner />
             <div className='content'>
-                <Banner />
                 <div className='subheader-container'>
                     <h1 className='subheader'>Selling</h1>
                 </div>
                 <div className='subheader-container'>
-                    <AddItemButton />
                     <ItemsList items={items} />
                 </div>
             </div>
