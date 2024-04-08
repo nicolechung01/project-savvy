@@ -5,15 +5,12 @@ import AddItem from '../components/Listing/AddItem';
 
 
 export default function Listing() {
-
-    const [items, setItems] = useState([]);
-
-    const handleNewItem = (newItem) => {
-        setItems(prevItems => [...prevItems, newItem]);
+    const handleAddItem = (newItem) => {
+        // Define logic to add the new item to the list
+        console.log("New item added:", newItem);
     };
 
-
     return (
-        <AddItem onAddItem={handleNewItem} />
+        <AddItem onAddItem={handleAddItem}/>
     )
 }
