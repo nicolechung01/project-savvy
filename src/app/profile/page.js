@@ -14,7 +14,7 @@ export default function Home() {
             name: "Pink Hoodie",
             img: "/assets/pinkhoodie.webp",
             description: "Cute and comfy Glossier hoodie. Clean and never used.",
-            price: '$30.99',
+            price: '30.99',
             condition: "New"
         },
         {
@@ -22,7 +22,7 @@ export default function Home() {
             name: "Black Running Shoes",
             img: "/assets/hoka.jpg",
             description: "Great running shoes from Hoka.",
-            price: '$50',
+            price: '50',
             condition: "Used"
         },
     ]
