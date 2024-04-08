@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 
 const AddItem = (props) => {
     
-    const router = useRouter();
+    /*const router = useRouter();*/
 
     //storing data
     const [formData, setFormData] = useState({
@@ -45,7 +45,6 @@ const AddItem = (props) => {
         
         props.onAddItem(newItem);
 
-
         // Clear the form fields
         setFormData({
             name: '',
@@ -57,6 +56,9 @@ const AddItem = (props) => {
             condition: '',
             price: '',
         });
+
+        /*router.push('../profile');*/
+
     };
 
     return (
@@ -78,17 +80,17 @@ const AddItem = (props) => {
                 </div>
                 <div className='subsection'>
                     <h3 className='subheader'>Name</h3>
-                    <input id="name-input" name="name" type="text" onChange={handleChange}/>
+                    <input id="name-input" name="name" type="text" value={formData.name} onChange={handleChange}/>
                 </div>
                 <div className='subsection'>
                     <h2 className='subheader'>Description</h2>
-                    <textarea id="description" name="description" onChange={handleChange}/>
+                    <textarea id="description" name="description" value={formData.description} onChange={handleChange}/>
                 </div>
                 <div className='subsection'>
                     <h2 className='subheader'>Info</h2>
                     <div>
                         <h3 className='subcategory'>Category</h3>
-                            <select id="dropdown" name="category" onChange={handleChange}>
+                            <select id="dropdown" name="category" value={formData.category} onChange={handleChange}>
                                 <option hidden selected value></option>
                                 <option value="Women's">Women's</option>
                                 <option value="Men's">Men's</option>
@@ -97,11 +99,11 @@ const AddItem = (props) => {
                     </div>
                     <div>
                         <h3 className='subcategory'>Brand</h3>
-                            <input id="brand-input" name="brand" type="text" onChange={handleChange}/>
+                            <input id="brand-input" name="brand" type="text" value={formData.brand} onChange={handleChange}/>
                     </div>
                     <div>
                         <h3 className='subcategory'>Size</h3>
-                            <select id="dropdown" name="size" onChange={handleChange}>
+                            <select id="dropdown" name="size" value={formData.size} onChange={handleChange}>
                                 <option hidden selected value></option>
                                 <optgroup label="Clothing">
                                 <    option value="XX-Small">XX-Small</option>
@@ -138,7 +140,7 @@ const AddItem = (props) => {
                     </div>
                     <div>
                         <h3 className='subcategory'>Condition</h3>
-                            <select id="dropdown" name="condition" onChange={handleChange}>
+                            <select id="dropdown" name="condition" value={formData.condition} onChange={handleChange}>
                                 <option hidden selected value></option>
                                 <option value="New">New</option>
                                 <option value="Used - Great">Used - Great</option>
@@ -149,7 +151,7 @@ const AddItem = (props) => {
                 </div>
                 <div className='subsection'>
                     <h2 className='subheader'>Item Price</h2>
-                    <input id="price-input" name="price" type="text" onChange={handleChange}/>
+                    <input id="price-input" name="price" type="text" value={formData.price} onChange={handleChange}/>
                 </div>
                 <button className='list-button' type="submit">List Item</button>
             </div>
