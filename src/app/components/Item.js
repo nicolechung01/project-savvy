@@ -7,7 +7,10 @@ const Item = (props) => {
     return (    
         <li key={props.id} className='item-container'>
             <img src={props.img} className="item-img" alt={props.name} />
-            <p className='item-price'>{props.price}</p>
+            <div className='item-info'>
+                <p className='item-price'>{props.name}</p>
+                <p className='item-price'>{props.price}</p>
+            </div>
         </li>
     )
 }
