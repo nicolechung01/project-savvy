@@ -1,7 +1,6 @@
 import SignUpButton from "./SignUpButton";
 import LogInButton from "./LogInButton";
 import styles from "./Cover.css"
-import { useRouter } from 'next/navigation'
 
 
 function Cover({loggedIn}) {
@@ -12,8 +11,12 @@ function Cover({loggedIn}) {
             <img className="cover-img" src="/assets/cover-img.jpg" />
             </div>
             <div className="button-container">
-                {!loggedIn && <SignUpButton />}
-                {!loggedIn && <LogInButton />}
+                {!loggedIn && (
+                    <>
+                        <SignUpButton />
+                        <LogInButton />
+                    </>
+                 )}
             </div>
         </div>
     )
