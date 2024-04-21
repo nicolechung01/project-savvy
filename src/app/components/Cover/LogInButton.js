@@ -3,7 +3,9 @@ import Link from 'next/link';
 
 function LogInButton() {
     return (
-        <Link href='/login'><button className="cover-button">Log In</button></Link>
+        <button className="cover-button">
+            <Link href='/login'>Log In</Link>
+        </button>
     )
 }
 export default LogInButton;

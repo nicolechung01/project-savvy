@@ -6,6 +6,7 @@ import Header from "../components/Header/Header"
 import Banner from "../components/Banner/Banner"
 import ItemsList from '../components/ItemsList';
 import AddItemButton from '../components/Listing/AddItemButton';
+import { UserProvider } from '../../../context/UserContext';
 
 export default function Home() {
     const initialItems = [
@@ -34,17 +35,20 @@ export default function Home() {
     };
 
     return (
-        <main className="main">
-            <Header />
-            <Banner />
-            <div className='content'>
-                <div className='subheader-container'>
-                    <h1 className='subheader'>Selling</h1>
+        <UserProvider>
+            <main className="main">
+                <Header />
+                <Banner />
+                <div className='content'>
+                    <div className='subheader-container'>
+                        <h1 className='subheader'>Selling</h1>
+                    </div>
+                    <div className='subheader-container'>
+                        <ItemsList items={items} />
+                    </div>
                 </div>
-                <div className='subheader-container'>
-                    <ItemsList items={items} />
-                </div>
-            </div>
-        </main>
+            </main>
+        </UserProvider>
+        
     )
     }
