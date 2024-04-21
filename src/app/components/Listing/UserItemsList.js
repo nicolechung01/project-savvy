@@ -8,8 +8,6 @@ function UserItemsList() {
     const {userData} = useContext(UserContext);
     const userId = userData?.user?.id;
 
-    console.log(userData);
-
     const [items, setItems] = useState([]);
 
     // request to database goes here
@@ -18,7 +16,6 @@ function UserItemsList() {
             try {
                 if (userId) {
                     const response = await axios.get(`http://localhost:8082/api/items/${userId}`);
-                    console.log(response);
                     setItems(response.data);
                 }
             } catch (error) {
@@ -27,8 +24,6 @@ function UserItemsList() {
         };
         fetchItems();
     }, [userId]); // Fetch items whenever userId changes
-
-    console.log(items);
 
     return (
         <ItemsList items={items} />
