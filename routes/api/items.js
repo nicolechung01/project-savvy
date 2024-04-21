@@ -19,14 +19,12 @@ router.get("/:userId", async (req, res) => {
 });
 
 // POST Listing                                                                                                                                                                                             
-
 router.post('/listing', bodyParser.json(), (req, res) => {                                                                                                                                               
     console,log("here");                                                                                                                                                                                 
     Item.create(req.body)                                                                                                                                                                                
         .then(item => res.json({ msg: "added successfully" }))                                                                                                                                           
         .catch(err => res.status(400).json({ error: 'Error' }));                                                                                                                                         
 });                                                                                                                                                                                                      
-
 
 
 // GET Retrievals, might need to filter by category                                                                                                                                                         
@@ -49,13 +47,5 @@ router.get('/home', (req, res) => {
         .catch(err => res.status(404).json({ noItemsFound: "No items found" }));
 });
 
-// router.post('/listing', bodyParser.json(), async (req, res) => {
-//     const { brand, category, condition, description, img, name, price, size } = req.body;
-
-//     const newItem = new Item({ brand, category, condition, description, img, name, price, size });
-//     console.log("worked");
-//     const savedItem = await newItem.save();
-//     res.json(savedItem);
-// });
 
 module.exports = router;
