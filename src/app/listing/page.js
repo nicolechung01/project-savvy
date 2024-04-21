@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import styles from './Listing.css';
 import AddItem from '../components/Listing/AddItem';
+import { UserProvider } from '../../../context/UserContext';
 
 
 export default function Listing() {
@@ -11,6 +12,8 @@ export default function Listing() {
     };
 
     return (
-        <AddItem onAddItem={handleAddItem}/>
+        <UserProvider>
+            <AddItem onAddItem={handleAddItem}/>
+        </UserProvider>
     )
 }
