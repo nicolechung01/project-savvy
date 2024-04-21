@@ -8,9 +8,9 @@ const ItemSchema = new mongoose.Schema({
         unique: false,
         trim: false,          
     },
-    photo: {
+    img: {
         type: Buffer,
-        required: false,
+        required: true,
     },
     description: {
         type: String,
