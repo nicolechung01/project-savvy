@@ -47,4 +47,34 @@ router.post('/listing', bodyParser.json(), (req,res) => {
 // //     res.json(savedItem);
 // // });
 
+// POST Listing                                                                                                                                                                                             
+router.post('/listing', bodyParser.json(), (req, res) => {                                                                                                                                               
+    console,log("here");                                                                                                                                                                                 
+    Item.create(req.body)                                                                                                                                                                                
+        .then(item => res.json({ msg: "added successfully" }))                                                                                                                                           
+        .catch(err => res.status(400).json({ error: 'Error' }));                                                                                                                                         
+});                                                                                                                                                                                                      
+
+
+// GET Retrievals, might need to filter by category                                                                                                                                                         
+
+router.get('/women', (req, res) => {
+    Item.find()
+        .then(items => res.json(items))
+        .catch(err => res.status(404).json({ noItemsFound: "No items found" }));
+});
+
+router.get('/men', (req, res) => {
+    Item.find()
+        .then(items => res.json(items))
+        .catch(err => res.status(404).json({ noItemsFound: "No items found" }));
+});
+
+router.get('/home', (req, res) => {
+    Item.find()
+        .then(items => res.json(items))
+        .catch(err => res.status(404).json({ noItemsFound: "No items found" }));
+});
+
+
 module.exports = router;

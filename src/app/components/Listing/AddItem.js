@@ -59,6 +59,12 @@ const AddItem = (props) => {
         } catch (error) {
             console.error('failed:', error);
         }
+        
+        await axios.post('http://localhost:8082/api/users/listing', formData)
+            .then(res => {
+                console.log(formData)
+                router.push('/');
+            })
   
              
 
