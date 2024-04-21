@@ -3,18 +3,10 @@ import styles from './Banner.css';
 import UserContext from '../../../../context/UserContext';
 import { useRouter } from 'next/router';
 
-const LogOutButton = () => {
-    const { userData, setUserData } = useContext(UserContext);
-    const router = useRouter();
-
-    const handleLogout = () => {
-        setUserData({ token: undefined, user: undefined }); // clear user data
-        localStorage.removeItem('auth-token');
-        router.push('/');
-    };
-
+function LogOutButton () {
     return (
-        <button onClick={handleLogout} className="button">
+        <button className="button">
+            Log Out
         </button>
     )
 }
