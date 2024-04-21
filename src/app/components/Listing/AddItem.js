@@ -37,14 +37,11 @@ const AddItem = (props) => {
     const submitHandler = async (event) => {
         event.preventDefault();
 
-
+        console.log(formData);
 
         try {
-            await axios.post('http://localhost:8082/api/items/listing', formData)
-                .then(res => {
-                    console.log("Form Data printout: " + formData)
-                    router.push('/profile');
-                })
+            await axios.post('http://localhost:8082/api/items/listing', formData); //add to db
+            router.push('/profile'); // back to profile
         } catch (error) {
             console.error('failed:', error);
         }   
