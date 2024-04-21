@@ -18,38 +18,9 @@ router.get("/:userId", async (req, res) => {
     }
 });
 
-//adding item to database
-router.post('/listing', bodyParser.json(), (req,res) => {
-    Item.create(req.body)
-    .then((item) => res.json({ msg: 'Item added'}))
-    .catch((err) => res.status(400).json({ error: 'Error'}));
-});
-
-
-// // GET Retrievals, might need to filter by category                                                                                                                                                         
-
-
-// // POST Listing                                                                                                                                                                                             
-
-// router.post('http://localhost:3000/listing', bodyParser.json(), (req, res) => {                                                                                                                                               
-//     console,log("here");                                                                                                                                                                                 
-//     Item.create(req.body)                                                                                                                                                                                
-//         .then(item => res.json({ msg: "added successfully" }))                                                                                                                                           
-//         .catch(err => res.status(400).json({ error: 'Error' }));                                                                                                                                         
-// });                                                                                                                                                                                                      
-
-// // router.post('/listing', bodyParser.json(), async (req, res) => {
-// //     const { brand, category, condition, description, img, name, price, size } = req.body;
-
-// //     const newItem = new Item({ brand, category, condition, description, img, name, price, size });
-// //     console.log("worked");
-// //     const savedItem = await newItem.save();
-// //     res.json(savedItem);
-// // });
 
 // POST Listing                                                                                                                                                                                             
 router.post('/listing', bodyParser.json(), (req, res) => {                                                                                                                                               
-    console,log("here");                                                                                                                                                                                 
     Item.create(req.body)                                                                                                                                                                                
         .then(item => res.json({ msg: "added successfully" }))                                                                                                                                           
         .catch(err => res.status(400).json({ error: 'Error' }));                                                                                                                                         
