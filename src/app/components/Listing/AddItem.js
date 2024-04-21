@@ -43,30 +43,11 @@ const AddItem = (props) => {
             await axios.post('http://localhost:8082/api/items/listing', formData)
                 .then(res => {
                     console.log("Form Data printout: " + formData)
-                    setFormData({
-                        name: '',
-                        img: '',
-                        description: '',
-                        category: '',
-                        brand: '',
-                        size: '',
-                        condition: '',
-                        price: '',
-                    });
-
-                    router.push('/');
+                    router.push('/profile');
                 })
         } catch (error) {
             console.error('failed:', error);
-        }
-        
-        await axios.post('http://localhost:8082/api/users/listing', formData)
-            .then(res => {
-                console.log(formData)
-                router.push('/');
-            })
-  
-             
+        }   
 
         const newItem = {
             id: Math.random().toString(), 
@@ -93,8 +74,6 @@ const AddItem = (props) => {
             condition: '',
             price: '',
         });
-
-        /*router.push('../profile');*/
 
     };
 
