@@ -53,6 +53,8 @@ const SignUpForm = () => {
                 <input className="form-input"
                     type="text"
                     name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                 />
                 <div className="label-container">
                     <label className="form-label">Create Username</label>
@@ -60,6 +62,8 @@ const SignUpForm = () => {
                 <input className="form-input"
                     type="text"
                     name="username"
+                    value={formData.username}
+                    onChange={handleInputChange}
                 />
                 <div className="label-container">
                     <label className="form-label">Create Password</label>
@@ -67,6 +71,8 @@ const SignUpForm = () => {
                 <input className="form-input"
                     type="password"
                     name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
                 />
                 <div className="label-container">
                     <label className="form-label">Confirm Password</label>
@@ -74,6 +80,8 @@ const SignUpForm = () => {
                 <input className="form-input"
                     type="password"
                     name="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={handleInputChange}
                 />
                 <div>
                     <button className="form-button" type="submit">

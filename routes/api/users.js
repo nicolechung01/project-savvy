@@ -1,10 +1,12 @@
 const express = require("express");
-const bcryptjs = require("bcryptjs");
+const bcryptjs = require('bcryptjs');
 const userRouter = express.Router();
 var bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/auth");
 const User = require('../../models/User');
+const secretKey = 'mySecretKey123';
+
 
 // Signup Route
 userRouter.post("/signup", async (req,res) => {
@@ -55,8 +57,8 @@ userRouter.post("/login", async (req, res) => {
         if (!isMatch) {
             return res.status(400).send({ msg: "Incorrect password"});
         }
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-        res.json({ token, user: {id: user._id, username: user.name } });
+        const token = jwt.sign({ id: user._id }, secretKey);
+        res.json({ token, user: {id: user._id, username: user.username } });
     } catch (err) {
         res.status(500).json({ error: err.message});
     }
@@ -68,7 +70,7 @@ userRouter.post("/tokenIsValid", async (req, res) => {
     try {
         const token = req.header("Authorization");
         if (!token) return res.json(false);
-        const verified = jwt.verify(tokenParts[1], process.env.JWT_SECRET);
+        const verified = jwt.verify(tokenParts[1], secretKey);
         if(!verified) return res.json(false);
         const user = await User.findById(verified.id);
         if (!user) return res.json(false);
