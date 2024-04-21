@@ -15,11 +15,13 @@ function Cover() {
                 <div className="cover-img-container">
                     <img className="cover-img" src="/assets/cover-img.jpg" />
                 </div>
-                {!userData.token && (
+                {!userData.token ? (
                     <div className="button-container">
                         <SignUpButton />
                         <LogInButton />
                     </div>
+                ) : (
+                    <div className='placeholder-button-container' style={{ height: '40px' }}></div>
                 )}
             </div>
         </UserProvider>
