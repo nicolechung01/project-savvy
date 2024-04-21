@@ -1,21 +1,13 @@
 "use client";
-import React, { useState } from 'react';
-{/*import styles from './profile.css';*/}
+import React, { useState, useEffect, useContext } from 'react';
 import styles from '../App.css';
 import Header from "../components/Header/Header"
 import Banner from "../components/Banner/Banner"
-import ItemsList from '../components/ItemsList';
-import AddItemButton from '../components/Listing/AddItemButton';
+import UserItemsList from '../components/Listing/UserItemsList';
+import UserContext from '../../../context/UserContext';
 import { UserProvider } from '../../../context/UserContext';
 
 export default function Profile() {
-
-    const [userItemsList, setUserItemsList] = useState(); //setList will be used with fetching data from db
-    
-    const addItemHandler = (newItem) => {
-        setUserItemsList(prevItems => [...prevItems, newItem]);
-    };
-
     return (
         <UserProvider>
             <main className="main">
@@ -26,11 +18,10 @@ export default function Profile() {
                         <h1 className='subheader'>Selling</h1>
                     </div>
                     <div className='subheader-container'>
-                        <ItemsList itemsList={userItemsList} />
+                    <UserItemsList />
                     </div>
                 </div>
             </main>
         </UserProvider>
-        
     )
 }

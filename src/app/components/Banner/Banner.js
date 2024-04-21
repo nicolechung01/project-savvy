@@ -6,7 +6,11 @@ import { useContext } from 'react';
 import UserContext from '../../../../context/UserContext';
 
 function Banner() {
-    const { userData } = useContext(UserContext);
+    const {userData} = useContext(UserContext);
+
+    const userId = userData?.user?.id;
+    const username = userData?.user?.username;
+
 
     return (
         <div>
@@ -16,7 +20,7 @@ function Banner() {
                         <img src="/assets/profilepic.jpeg" alt="Profile Picture" className="profilePicture" />
                     </div>
                     <div className="userInfo">
-                        <h1 className='username'>USERNAME</h1>
+                        <h1 className='username'>{username}</h1>
                         <p className='bio'>This is an example bio for this seller.</p>
                     </div>
                 </div>

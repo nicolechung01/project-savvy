@@ -4,9 +4,12 @@ import CartButton from "./CartButton.js"
 import ProfileButton from "./ProfileButton.js"
 import styles from "./Header.css"
 import Link from 'next/link';
+import { useContext } from "react";
+import UserContext from "../../../../context/UserContext.js";
 
 
 function Header() {
+    const { userData } = useContext(UserContext);
     return (
         <header className="header-container">
             <Link href='/'>

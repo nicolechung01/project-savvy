@@ -38,6 +38,11 @@ const ItemSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
+    user_id: {      // how to keep track of all items listen by each user
+        type: String,
+        required: true,
+        ref: 'User'
+    }
 });
 
 const Item = mongoose.model('item', ItemSchema);

@@ -5,14 +5,14 @@ import LargeListItemButton from './Banner/LargeListItemButton';
 
 
 const ItemsList = ({ items }) => {
-  if (!items || items.length === 0) {
+  if (!items) {
     return (
       <div className="empty-container">
         <h3 className='sell-message'>You have not listed any items yet.</h3>
         <LargeListItemButton />
       </div>
     )
-  }
+}
 
   return (
     <div className="container">

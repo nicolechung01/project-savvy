@@ -82,4 +82,7 @@ userRouter.post("/tokenIsValid", async (req, res) => {
 
 // Listing Route
 
+//retrieve user info route
+
+
 module.exports = userRouter;
