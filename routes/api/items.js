@@ -18,12 +18,15 @@ router.get("/:userId", async (req, res) => {
     }
 });
 
-//adding item to database
-router.post('/', bodyParser.json(), (req,res) => {
-    Item.create(req.body)
-    .then((item) => res.json({ msg: 'Item added'}))
-    .catch((err) => res.status(400).json({ error: 'Error'}));
-});
+// POST Listing                                                                                                                                                                                             
+
+router.post('/listing', bodyParser.json(), (req, res) => {                                                                                                                                               
+    console,log("here");                                                                                                                                                                                 
+    Item.create(req.body)                                                                                                                                                                                
+        .then(item => res.json({ msg: "added successfully" }))                                                                                                                                           
+        .catch(err => res.status(400).json({ error: 'Error' }));                                                                                                                                         
+});                                                                                                                                                                                                      
+
 
 
 // GET Retrievals, might need to filter by category                                                                                                                                                         
@@ -45,16 +48,6 @@ router.get('/home', (req, res) => {
         .then(items => res.json(items))
         .catch(err => res.status(404).json({ noItemsFound: "No items found" }));
 });
-
-
-// POST Listing                                                                                                                                                                                             
-
-router.post('http://localhost:3000/listing', bodyParser.json(), (req, res) => {                                                                                                                                               
-    console,log("here");                                                                                                                                                                                 
-    Item.create(req.body)                                                                                                                                                                                
-        .then(item => res.json({ msg: "added successfully" }))                                                                                                                                           
-        .catch(err => res.status(400).json({ error: 'Error' }));                                                                                                                                         
-});                                                                                                                                                                                                      
 
 // router.post('/listing', bodyParser.json(), async (req, res) => {
 //     const { brand, category, condition, description, img, name, price, size } = req.body;
