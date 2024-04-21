@@ -40,6 +40,7 @@ const AddItem = (props) => {
         console.log(formData);
 
         try {
+            formData.user_id = userId;
             await axios.post('http://localhost:8082/api/items/listing', formData); //add to db
             router.push('/profile'); // back to profile
         } catch (error) {
