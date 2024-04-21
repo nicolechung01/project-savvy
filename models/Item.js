@@ -1,3 +1,4 @@
+const { Binary } = require('mongodb');
 const mongoose = require('mongoose');
 
 const ItemSchema = new mongoose.Schema({
@@ -9,7 +10,7 @@ const ItemSchema = new mongoose.Schema({
     },
     photo: {
         type: Buffer,
-        required: true,
+        required: false,
     },
     description: {
         type: String,
@@ -40,7 +41,7 @@ const ItemSchema = new mongoose.Schema({
     },
     user_id: {      // how to keep track of all items listen by each user
         type: String,
-        required: true,
+        required: false,
         ref: 'User'
     }
 });

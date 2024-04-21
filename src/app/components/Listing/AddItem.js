@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import styles from '../../listing/Listing.css';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { useContext } from 'react';
+import UserContext from '../../../../context/UserContext';
+
 
 const AddItem = (props) => {
     const router = useRouter();
+    const { userData } = useContext(UserContext);
+    const userId = userData?.user?.id;
 
     //storing data
     const [formData, setFormData] = useState({
@@ -16,6 +21,7 @@ const AddItem = (props) => {
         size: '',
         condition: '',
         price: '',
+        user_id: '',       // new addition
     });
 
     //handling the updates
@@ -30,23 +36,29 @@ const AddItem = (props) => {
     //submit Handler
     const submitHandler = async (event) => {
         event.preventDefault();
-        
-        await axios.post('http://localhost:8082/api/users/listing', formData)
-            .then(res => {
-                console.log(formData)
-                // setFormData({
-                //     name: '',
-                //     img: '',
-                //     description: '',
-                //     category: '',
-                //     brand: '',
-                //     size: '',
-                //     condition: '',
-                //     price: '',
-                // });
 
-                router.push('/');
-            })
+
+
+        try {
+            await axios.post('http://localhost:8082/api/items/listing', formData)
+                .then(res => {
+                    console.log("Form Data printout: " + formData)
+                    setFormData({
+                        name: '',
+                        img: '',
+                        description: '',
+                        category: '',
+                        brand: '',
+                        size: '',
+                        condition: '',
+                        price: '',
+                    });
+
+                    router.push('/');
+                })
+        } catch (error) {
+            console.error('failed:', error);
+        }
   
              
 
@@ -64,17 +76,17 @@ const AddItem = (props) => {
         
         props.onAddItem(newItem);
 
-        // // Clear the form fields
-        // setFormData({
-        //     name: '',
-        //     img: '',
-        //     description: '',
-        //     category: '',
-        //     brand: '',
-        //     size: '',
-        //     condition: '',
-        //     price: '',
-        // });
+        // Clear the form fields
+        setFormData({
+            name: '',
+            img: '',
+            description: '',
+            category: '',
+            brand: '',
+            size: '',
+            condition: '',
+            price: '',
+        });
 
         /*router.push('../profile');*/
 
