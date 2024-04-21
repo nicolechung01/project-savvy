@@ -36,9 +36,9 @@ const LogInForm = () => {
                 token: response.data.token,
                 user: response.data.user,
             });
+            console.log(userData);
             // store authentication token in local storage
             localStorage.setItem("auth-token", response.data.token);
-            console.log(userData.token);
             router.push('/');
         } catch (error) {
             console.error('Login failed:', error);

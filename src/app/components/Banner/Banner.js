@@ -2,8 +2,12 @@ import LogOutButton from './LogOutButton';
 import ListItemButton from './ListItemButton';
 import styles from './Banner.css';
 import { useRouter } from 'next/navigation'
+import { useContext } from 'react';
+import UserContext from '../../../../context/UserContext';
 
 function Banner() {
+    const { userData } = useContext(UserContext);
+
     return (
         <div>
             <div className="banner">
@@ -16,14 +20,14 @@ function Banner() {
                         <p className='bio'>This is an example bio for this seller.</p>
                     </div>
                 </div>
-                <div className='nav-container'>
-                    <div className="list-item">
-                        <ListItemButton />
+                    <div className='nav-container'>
+                        <div className="list-item">
+                            <ListItemButton />
+                        </div>
+                        <div className="logout">
+                            <LogOutButton />
+                        </div>
                     </div>
-                    <div className="logout">
-                        <LogOutButton />
-                    </div>
-                </div>
             </div>
             
         </div>
