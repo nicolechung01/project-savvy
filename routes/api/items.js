@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 var bodyParser = require("body-parser");
-<<<<<<< HEAD
 const Item = require('../../models/Item');
 
 // get [user]'s items
@@ -26,9 +25,6 @@ router.post('/', bodyParser.json(), (req,res) => {
     .catch((err) => res.status(400).json({ error: 'Error'}));
 });
 
-=======
-
-const Item = require('../../models/Item');
 
 // GET Retrievals, might need to filter by category                                                                                                                                                         
 
@@ -69,5 +65,4 @@ router.post('http://localhost:3000/listing', bodyParser.json(), (req, res) => {
 //     res.json(savedItem);
 // });
 
->>>>>>> 833459ba2fc24ff29d7153a6b57508e544a7fac8
 module.exports = router;
