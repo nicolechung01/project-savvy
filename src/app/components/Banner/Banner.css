@@ -1,6 +1,6 @@
 
 .banner {
-    background-color: rgba(225, 223, 219, 0.9);
+    background-color: rgba(202, 209, 220, 0.9);
     display: flex;
     padding: 30px;
     width: 1280px;
@@ -33,29 +33,51 @@
     font-family: 'Unbounded';
     font-size: 45px;
     margin: 40px 0 10px 0;
+    color: white;
 }
 .bio {
     font-family: 'Inter' sans-serif;
     font-size: 18px;
+    color: white;
 }
 .button {
     display: flex;
     font-family: 'Inter' sans-serif;
-    font-size: 20px;
-    color: rgb(255, 255, 255);
+    font-size: 25px;
+    color: rgb(27, 35, 61);
     border-radius: 25px;
-    width: 130px;
-    padding: 5px 20px 5px 20px;
+    width: 150px;
+    padding: 5px 20px 5px 20px;;
     border: none;
     height: fit-content;
     margin: 0 10px 0 10px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.5);
     justify-content: center;
     transition: color 0.3s;
 }
+
+.large-button{
+    display: flex;
+    font-family: 'Inter' sans-serif;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+    width: 170px;
+    padding: 5px 20px 5px 20px;
+    border: none;
+    height: fit-content;
+    margin: 30px;
+    background-color: rgb(0, 0, 0);
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
 .button:hover {
-    color: black;
-    background-color: white;
+    color: white;
+}
+
+.large-button:hover {
+    background-color: rgb(171, 171, 171);
 }
 .logout {
     display: flex;

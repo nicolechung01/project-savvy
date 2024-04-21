@@ -8,30 +8,12 @@ import ItemsList from '../components/ItemsList';
 import AddItemButton from '../components/Listing/AddItemButton';
 import { UserProvider } from '../../../context/UserContext';
 
-export default function Home() {
-    const initialItems = [
-        {
-            id: 1,
-            name: "Pink Hoodie",
-            img: "/assets/pinkhoodie.webp",
-            description: "Cute and comfy Glossier hoodie. Clean and never used.",
-            price: '$30.99',
-            condition: "New"
-        },
-        {
-            id: 2,
-            name: "Black Running Shoes",
-            img: "/assets/hoka.jpg",
-            description: "Great running shoes from Hoka.",
-            price: '$50.00',
-            condition: "Used"
-        },
-    ]
+export default function Profile() {
 
-    const [items, setItems] = useState(initialItems);
-
+    const [userItemsList, setUserItemsList] = useState(); //setList will be used with fetching data from db
+    
     const addItemHandler = (newItem) => {
-        setItems(prevItems => [...prevItems, newItem]);
+        setUserItemsList(prevItems => [...prevItems, newItem]);
     };
 
     return (
@@ -44,11 +26,11 @@ export default function Home() {
                         <h1 className='subheader'>Selling</h1>
                     </div>
                     <div className='subheader-container'>
-                        <ItemsList items={items} />
+                        <ItemsList itemsList={userItemsList} />
                     </div>
                 </div>
             </main>
         </UserProvider>
         
     )
-    }
+}

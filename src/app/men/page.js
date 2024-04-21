@@ -36,7 +36,7 @@ export default function Men() {
             <Header />
             <div className='content'>
                 <div className='subheader-container'>
-                    <h1 className='subheader'>Mens's</h1>
+                    <h1 className='subheader'>Men's</h1>
                     <p className='result-num'>{mensList.length} results</p>
                 </div>
                 <ItemsList items={mensList} />
