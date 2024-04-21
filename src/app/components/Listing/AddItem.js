@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from '../../listing/Listing.css';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 const AddItem = (props) => {
-    
-    /*const router = useRouter();*/
+    const router = useRouter();
 
     //storing data
     const [formData, setFormData] = useState({
@@ -28,9 +28,28 @@ const AddItem = (props) => {
     };
 
     //submit Handler
-    const submitHandler = (event) => {
+    const submitHandler = async (event) => {
         event.preventDefault();
         
+        await axios.post('http://localhost:8082/api/users/listing', formData)
+            .then(res => {
+                console.log(formData)
+                // setFormData({
+                //     name: '',
+                //     img: '',
+                //     description: '',
+                //     category: '',
+                //     brand: '',
+                //     size: '',
+                //     condition: '',
+                //     price: '',
+                // });
+
+                router.push('/');
+            })
+  
+             
+
         const newItem = {
             id: Math.random().toString(), 
             name: formData.name,
@@ -45,17 +64,17 @@ const AddItem = (props) => {
         
         props.onAddItem(newItem);
 
-        // Clear the form fields
-        setFormData({
-            name: '',
-            img: '',
-            description: '',
-            category: '',
-            brand: '',
-            size: '',
-            condition: '',
-            price: '',
-        });
+        // // Clear the form fields
+        // setFormData({
+        //     name: '',
+        //     img: '',
+        //     description: '',
+        //     category: '',
+        //     brand: '',
+        //     size: '',
+        //     condition: '',
+        //     price: '',
+        // });
 
         /*router.push('../profile');*/
 
@@ -63,7 +82,7 @@ const AddItem = (props) => {
 
     return (
         <div className='main-container'>
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} method='POST' action='/listing'>
             <div className='form-container'>
                 <h1 className='header'>List an Item</h1>
                 <div className='subsection'>
