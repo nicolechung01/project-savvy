@@ -8,9 +8,19 @@ const ItemSchema = new mongoose.Schema({
         unique: false,
         trim: false,          
     },
-    img: {
+    img1: {
         type: Buffer,
         required: true,
+    },
+    img2: {
+        type: Buffer,
+        required: false,
+    },img3: {
+        type: Buffer,
+        required: false,
+    },img4: {
+        type: Buffer,
+        required: false,
     },
     description: {
         type: String,
@@ -35,7 +45,7 @@ const ItemSchema = new mongoose.Schema({
         required: true,
     },
     price: {
-        type: Number,     // might have to change
+        type: String,     // might have to change
         required: true,
         trim: true,
     },

@@ -11,9 +11,7 @@ export const UserProvider = ({ children}) => {
         //check for stored token in localStorage
         const token = localStorage.getItem('auth-token');
         const storedUserString = localStorage.getItem('auth-user');
-        console.log('Stored User String:', storedUserString);
         const storedUser = JSON.parse(storedUserString);
-        console.log(storedUser);
         if (token) {
             setUserData(prev => ({
                 ...prev,

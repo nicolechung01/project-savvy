@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Item.css';
 import Link from 'next/link'
 
 const Item = (props) => {
+
     return (    
-        <li key={props.id} className='item-container'>
+        <li className='item-container'>
             <img src={props.img} className="item-img" alt={props.name} />
             <div className='item-info'>
                 <p className='item-price'>{props.name}</p>
