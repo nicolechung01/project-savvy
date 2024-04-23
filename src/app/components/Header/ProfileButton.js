@@ -1,4 +1,4 @@
-import styles from "./ProfileButton.css"
+import styles from "./HeaderButton.css"
 import Link from "next/link";
 import UserContext from "../../../../context/UserContext";
 import { useContext } from "react";

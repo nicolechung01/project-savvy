@@ -1,5 +1,5 @@
 import SearchBar from "./SearchBar.js"
-import LikesButton from "./LikesButton.js"
+import LogoutSymbol from "./LogoutSymbol.js"
 import CartButton from "./CartButton.js"
 import ProfileButton from "./ProfileButton.js"
 import styles from "./Header.css"
@@ -17,7 +17,7 @@ function Header() {
             </Link>
             <SearchBar className="searchBar" />
             <nav className="nav">
-                <LikesButton className="button" />
+                <LogoutSymbol className="button" />
                 <CartButton className="button" />
                 <ProfileButton className="button" />
             </nav>
