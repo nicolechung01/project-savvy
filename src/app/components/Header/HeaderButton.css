@@ -1,4 +1,4 @@
-.cart-button {
+.button {
     outline: none;
     border: none;
     background-color: transparent;
@@ -6,12 +6,6 @@
 
 .bag-img {
     height: 30px;
-}
-
-.profile-button {
-    outline: none;
-    border: none;
-    background-color: transparent;
 }
 
 .profile-img {

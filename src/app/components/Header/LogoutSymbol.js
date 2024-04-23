@@ -2,7 +2,7 @@ import styles from "./HeaderButton.css"
 
 function LogoutSymbol() {
     return (
-        <button className="log-button">
+        <button className="button">
             <img className="log-img" src="/assets/logout.png" />
         </button>
     )
