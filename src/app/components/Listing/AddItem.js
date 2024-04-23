@@ -101,7 +101,7 @@ const AddItem = (props) => {
                 </div>
                 <div className='subsection'>
                     <h2 className='subheader'>Description</h2>
-                    <textarea id="description" name="description" value={formData.description} onChange={handleChange}/>
+                    <textarea id="description" name="description" placeholder="e.g. small white t-shirt" value={formData.description} onChange={handleChange}/>
                 </div>
                 <div className='subsection'>
                     <h2 className='subheader'>Info</h2>
@@ -168,7 +168,7 @@ const AddItem = (props) => {
                 </div>
                 <div className='subsection'>
                     <h2 className='subheader'>Item Price</h2>
-                    <input id="price-input" name="price" type="text" value={formData.price} onChange={handleChange}/>
+                    <input id="price-input" name="price" type="text" placeholder="$0.00" value={formData.price} onChange={handleChange}/>
                 </div>
                 <button className='list-button' type="submit">List Item</button>
             </div>
