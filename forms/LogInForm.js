@@ -22,6 +22,7 @@ const LogInForm = () => {
     const [error, setError] = useState('');
 
     const handleInputChange = (e) => {
+        setError('');
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -43,7 +44,7 @@ const LogInForm = () => {
             router.push('/');
         } catch (error) {
             console.error('Login failed:', error);
-            // handle login error
+            setError(error.response.data.msg);        
         }
     };
 
@@ -68,6 +69,9 @@ const LogInForm = () => {
                 value={formData.password}
                 onChange={handleInputChange}
                 />
+                <div className="error-container">
+                    {error && <p className="error-message">{error}</p>}
+                </div>
                 <div>
                     <button className="form-button" type="submit">
                     Log In

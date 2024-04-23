@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 
 const SignUpForm = () => {
     const { setUserData } = useContext(UserContext);
+    const [error, setError] = useState('');
+
 
     const [formData, setFormData] = useState({
         email: '',
@@ -15,6 +17,7 @@ const SignUpForm = () => {
     });
 
     const handleInputChange = (e) => {
+        setError({});
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
