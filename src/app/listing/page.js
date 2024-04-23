@@ -14,10 +14,10 @@ export default function Listing() {
 
     return (
         <UserProvider>
-            <main>
+            <div className='listing-form-main'>
                 <Header />
                 <AddItem onAddItem={handleAddItem}/>
-            </main>
+            </div>
         </UserProvider>
     )
 }
