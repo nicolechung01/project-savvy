@@ -9,6 +9,7 @@ import UserContext, { UserProvider } from "../../../../context/UserContext.js";
 
 
 function Header() {
+    const {userData} = useContext(UserContext);
     return (
         <UserProvider>
         <header className="header-container">
@@ -17,7 +18,7 @@ function Header() {
             </Link>
             <SearchBar className="searchBar" />
             <nav className="nav">
-                <LogoutSymbol className="button" />
+                { userData.token && <LogoutSymbol className="button" />}
                 <CartButton className="button" />
                 <ProfileButton className="button" />
             </nav>
