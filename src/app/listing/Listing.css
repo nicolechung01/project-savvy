@@ -31,6 +31,15 @@
     font-weight: 500;
     margin-bottom: 10px;
 }
+.subheader-photos {
+    font-weight: 500;
+}
+
+.instructions {
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 10px;
+}
 
 .subcategory {
     font-weight: 400;
@@ -124,7 +133,7 @@ input[type="file"]::file-selector-button:hover {
 }
 
 .list-button {
-    margin-top: 50px;
+    margin-top: 30px;
     height: 40px;
     width: 100%;
     color: white;

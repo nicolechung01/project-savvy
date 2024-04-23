@@ -13,7 +13,10 @@ const AddItem = (props) => {
     //storing data
     const [formData, setFormData] = useState({
         name: '',
-        img: '',
+        img1: '',
+        img2: '',
+        img3: '',
+        img4: '',
         description: '',
         category: '',
         brand: '',
@@ -35,7 +38,7 @@ const AddItem = (props) => {
     //submit Handler
     const submitHandler = async (event) => {
         event.preventDefault();
-
+        
         console.log(formData);
 
         try {
@@ -46,7 +49,7 @@ const AddItem = (props) => {
             console.error('failed:', error);
         }   
 
-        const newItem = {
+        /*const newItem = {
             id: Math.random().toString(), 
             name: formData.name,
             img: formData.img,
@@ -56,14 +59,15 @@ const AddItem = (props) => {
             size: formData.size,
             condition: formData.condition,
             price: formData.price,
-        };
+        };*/
         
-        props.onAddItem(newItem);
-
         // Clear the form fields
         setFormData({
             name: '',
-            img: '',
+            img1: '',
+            img2: '',
+            img3: '',
+            img4: '',
             description: '',
             category: '',
             brand: '',
@@ -80,19 +84,19 @@ const AddItem = (props) => {
             <div className='form-container'>
                 <h1 className='header'>List an Item</h1>
                 <div className='subsection'>
-                    <h2 className='subheader'>Photos</h2>
+                    <h2 className='subheader-photos'>Photos</h2>
+                    <p className='instructions'>Add up to four photos in JPEG or PNG format.</p>
                     <div className='photo-container'>
                         <div className="uploader">
-                            <img className="img-symbol" src='/assets/add-photo.png' style={{height: '30px'}}></img>
-                            <input id="input" name="img" type="file" accept="image/*" onChange={(event) => setFormData({ ...formData, img: event.target.value })}/>
+                            <input id="input" name="img1" type="file" accept=".jpg, .jpeg, .png" value={formData.img1} onChange={handleChange}/>
+                            <input id="input" name="img2" type="file" accept=".jpg, .jpeg, .png" value={formData.img2} onChange={handleChange}/>
+                            <input id="input" name="img3" type="file" accept=".jpg, .jpeg, .png" value={formData.img3} onChange={handleChange}/>
+                            <input id="input" name="img4" type="file" accept=".jpg, .jpeg, .png" value={formData.img4} onChange={handleChange}/>
                         </div>
-                        <div className="placeholder"></div>
-                        <div className="placeholder"></div>
-                        <div className="placeholder"></div>
                     </div>        
                 </div>
                 <div className='subsection'>
-                    <h3 className='subheader'>Name</h3>
+                    <h2 className='subheader'>Name</h2>
                     <input id="name-input" name="name" type="text" value={formData.name} onChange={handleChange}/>
                 </div>
                 <div className='subsection'>
