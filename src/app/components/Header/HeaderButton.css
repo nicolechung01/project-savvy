@@ -1,4 +1,16 @@
-.button {
+.profile-button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.cart-button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.logout-button {
     outline: none;
     border: none;
     background-color: transparent;

@@ -7,7 +7,7 @@ function ProfileButton() {
     const { userData } = useContext(UserContext);
 
     return (
-        <button className="button">
+        <button className="profile-button">
             <Link href={userData ? '/profile' : '/login'}>
                 <img className="profile-img" src="/assets/user.png" />
             </Link>

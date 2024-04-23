@@ -13,7 +13,7 @@ function LogoutSymbol() {
         router.push('/');
     }
     return (
-        <button onClick={handleLogout} className="button">
+        <button onClick={handleLogout} className="logout-button">
             <img className="log-img" src="/assets/logout.png" />
         </button>
     )
