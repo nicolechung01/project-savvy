@@ -29,10 +29,18 @@ const AddItem = (props) => {
     //handling the updates
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
+
+        if (name === 'price' && value && !value.startsWith('$')) {
+            setFormData({
+                ...formData,
+                [name]: '$' + value, // Add '$' to the beginning of the value
+            });
+        } else {
+            setFormData(prevState => ({
+                ...prevState,
+                [name]: value
+            }));
+        }
     };
 
     //submit Handler
