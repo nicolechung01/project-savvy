@@ -17,7 +17,7 @@ const SignUpForm = () => {
     });
 
     const handleInputChange = (e) => {
-        setError({});
+        setError('');
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
@@ -29,6 +29,15 @@ const SignUpForm = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
+            if (!email || !password || !username || !confirmPassword) {
+                setError("Please fill in all fields");
+            }
+            if (password.length < 6) {
+                setError("Password should be at least 6 characters");
+            }
+            if (confirmPassword !== password) {
+                setError("Passwords do not match");
+            }
             await axios.post('http://localhost:8082/api/users/signup', formData);
             const loginRes = await axios.post('http://localhost:8082/api/users/login', {
                 email: formData.email,
@@ -43,7 +52,7 @@ const SignUpForm = () => {
             router.push('/');
         } catch (error) {
             console.error('Signup failed:', error);
-            // handle signup error
+            setError(error.response.data.msg);
         }
     };
 
@@ -86,6 +95,9 @@ const SignUpForm = () => {
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
                 />
+                <div className="error-container">
+                    {error && <p className="error-message">{error}</p>}
+                </div>
                 <div>
                     <button className="form-button" type="submit">
                         Sign Up
