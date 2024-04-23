@@ -29,13 +29,13 @@ const SignUpForm = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            if (!email || !password || !username || !confirmPassword) {
+            if (!formData.email || !formData.password || !formData.username || !formData.confirmPassword) {
                 setError("Please fill in all fields");
             }
-            if (password.length < 6) {
+            if (formData.password.length < 6) {
                 setError("Password should be at least 6 characters");
             }
-            if (confirmPassword !== password) {
+            if (formData.confirmPassword !== formData.password) {
                 setError("Passwords do not match");
             }
             await axios.post('http://localhost:8082/api/users/signup', formData);
