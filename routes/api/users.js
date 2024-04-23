@@ -12,7 +12,7 @@ const secretKey = 'mySecretKey123';
 userRouter.post("/signup", async (req,res) => {
     try {
         const { email, password, confirmPassword, username } = req.body;
-        if (!email || ! password || !username || !confirmPassword) {
+        if (!email || !password || !username || !confirmPassword) {
             return res.status(400).json({msg: "Please enter all fields"});
         }
         if (password.length < 6) {
