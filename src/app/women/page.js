@@ -3,6 +3,7 @@ import {useState} from 'react';
 import ItemsList from "../components/ItemsList.js";
 import Header from '../components/Header/Header.js';
 import styles from '../App.css';
+import { UserProvider } from '../../../context/UserContext.js';
 
 export default function Women() {
 
@@ -32,18 +33,19 @@ export default function Women() {
     };
 
     return (
-        <main className="main">
-            <Header />
-            <div className='content'>
-                <div className='subheader-container'>
-                    <h1 className='subheader'>Women's</h1>
-                    <p className='result-num'>{womensList.length} results</p>
+        <UserProvider>
+            <main className="main">
+                <Header />
+                <div className='content'>
+                    <div className='subheader-container'>
+                        <h1 className='subheader'>Women's</h1>
+                        <p className='result-num'>{womensList.length} results</p>
+                    </div>
+                    <div>
+                    <ItemsList items={womensList} />
+                    </div>
                 </div>
-                <div>
-                <ItemsList items={womensList} />
-                </div>
-            </div>
-        </main>
-        
+            </main>
+        </UserProvider>
     )
 }

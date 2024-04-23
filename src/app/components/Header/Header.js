@@ -5,13 +5,11 @@ import ProfileButton from "./ProfileButton.js"
 import styles from "./Header.css"
 import Link from 'next/link';
 import { useContext } from "react";
-import UserContext, { UserProvider } from "../../../../context/UserContext.js";
-
+import UserContext from "../../../../context/UserContext.js";
 
 function Header() {
-    const {userData} = useContext(UserContext);
+    const { userData } = useContext(UserContext);
     return (
-        <UserProvider>
         <header className="header-container">
             <Link href='/'>
                 <h1 className="logo">savvy</h1>
@@ -23,7 +21,6 @@ function Header() {
                 <ProfileButton className="button" />
             </nav>
         </header>
-        </UserProvider>
     )
 };
 

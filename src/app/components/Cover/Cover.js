@@ -1,8 +1,7 @@
 import SignUpButton from "./SignUpButton";
 import LogInButton from "./LogInButton";
 import styles from "./Cover.css"
-import { useRouter } from 'next/navigation'
-import UserContext, { UserProvider } from "../../../../context/UserContext";
+import UserContext from "../../../../context/UserContext";
 import { useContext } from "react";
 
 
@@ -23,5 +22,5 @@ function Cover() {
             )}
         </div>        
     )
-}
+};
 export default Cover;

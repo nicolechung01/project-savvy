@@ -3,6 +3,7 @@ import {useState} from 'react';
 import ItemsList from "../components/ItemsList.js";
 import Header from "../components/Header/Header.js"
 import styles from '../App.css';
+import { UserProvider } from '../../../context/UserContext.js';
 
 export default function Home() {
 
@@ -32,15 +33,17 @@ export default function Home() {
     };
 
     return (
-        <main className="main">
-            <Header />
-            <div className='content'>
-                <div className='subheader-container'>
-                    <h1 className='subheader'>Home</h1>
-                    <p className='result-num'>{homeList.length} results</p>
-                </div>                
-                <ItemsList items={homeList} />
-            </div>
-        </main>
+        <UserProvider>
+            <main className="main">
+                <Header />
+                <div className='content'>
+                    <div className='subheader-container'>
+                        <h1 className='subheader'>Home</h1>
+                        <p className='result-num'>{homeList.length} results</p>
+                    </div>                
+                    <ItemsList items={homeList} />
+                </div>
+            </main>
+        </UserProvider>
     )
 }
