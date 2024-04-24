@@ -44,7 +44,11 @@ const LogInForm = () => {
             router.push('/');
         } catch (error) {
             console.error('Login failed:', error);
-            setError(error.response.data.msg);        
+            if (error.response && error.response.data && error.response.data.msg) {
+            setError(error.response.data.msg);
+        } else {
+            setError('An unexpected error occurred. Please try again.');
+        }   
         }
     };
 

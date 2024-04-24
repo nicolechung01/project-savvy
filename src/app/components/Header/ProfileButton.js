@@ -6,9 +6,11 @@ import { useContext } from "react";
 function ProfileButton() {
     const { userData } = useContext(UserContext);
 
+    const isLoggedIn = userData && userData.token;
+
     return (
         <button className="profile-button">
-            <Link href={userData ? '/profile' : '/login'}>
+            <Link href={isLoggedIn ? '/profile' : '/login'}>
                 <img className="profile-img" src="/assets/user.png" />
             </Link>
         </button>

@@ -85,4 +85,22 @@ userRouter.post("/tokenIsValid", async (req, res) => {
 //retrieve user info route
 
 
+// Profile Route (Protected)
+userRouter.get("/profile", auth, async (req, res) => {
+    try {
+        // Access req.user to get the authenticated user's ID
+        const userId = req.user;
+        // Query database or perform other actions based on the authenticated user
+        // For example:
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ msg: "User not found" });
+        }
+        // Return user profile data
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 module.exports = userRouter;
