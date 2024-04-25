@@ -23,7 +23,7 @@ const ItemsList = ({ items }) => {
           <Item
             key={item._id}
             name={item.name}
-            img={item.img}
+            img={item.img1}
             description={item.description}
             size={item.size}
             condition={item.condition}

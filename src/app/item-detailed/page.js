@@ -2,10 +2,12 @@
 import { useRouter } from 'next/navigation';
 import Header from '../components/Header/Header';
 import styles from './ItemDetailed.css';
+import { UserProvider } from '../../../context/UserContext';
 
 export default function Details() {
 
     return (
+        <UserProvider>
         <main className="main">
             <Header />
             <div className="content">
@@ -29,5 +31,6 @@ export default function Details() {
                 </div>
             </div>
         </main>
+        </UserProvider>
     );
 }
