@@ -3,6 +3,7 @@ import styles from './Item.css';
 import Link from 'next/link'
 
 const Item = (props) => {
+    console.log(props.img);
 
     return (    
         <li className='item-container'>

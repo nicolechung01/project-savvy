@@ -21,7 +21,7 @@ function Banner() {
                     </div>
                     <div className="userInfo">
                         <h1 className='username'>{username}</h1>
-                        <p className='bio'>This is an example bio for this seller.</p>
+                        <p className='bio'>atl-based, dm for questions.</p>
                     </div>
                 </div>
                     <div className='nav-container'>

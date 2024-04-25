@@ -2,18 +2,20 @@ import React from 'react';
 import Item from './Item';
 import styles from './ItemsList.css';
 import LargeListItemButton from './Banner/LargeListItemButton';
+import { photoMap } from './PhotoMap';
 
 
 const ItemsList = ({ items }) => {
-  if (!items) {
+  if (items.length === 0) {
     return (
       <div className="empty-container">
         <h3 className='sell-message'>You have not listed any items yet.</h3>
         <LargeListItemButton />
       </div>
     )
-}
+  }
 
+  console.log(photoMap);
   return (
     <div className="container">
       <ul className='list'>

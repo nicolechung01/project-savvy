@@ -9,7 +9,7 @@ const ItemSchema = new mongoose.Schema({
         trim: false,          
     },
     img1: {
-        type: Buffer,
+        type: String,
         required: true,
     },
     img2: {
@@ -51,9 +51,9 @@ const ItemSchema = new mongoose.Schema({
     },
     user_id: {      // how to keep track of all items listen by each user
         type: String,
-        required: false,
+        required: true,
         ref: 'User'
-    }
+    },
 });
 
 const Item = mongoose.model('item', ItemSchema);

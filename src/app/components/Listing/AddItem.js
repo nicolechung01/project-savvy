@@ -4,11 +4,14 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useContext } from 'react';
 import UserContext from '../../../../context/UserContext';
+import { photoMap, addKeyWithArray, deleteKeyWithArray } from '../PhotoMap';
 
-const AddItem = (props) => {
+const AddItem = () => {
     const router = useRouter();
     const { userData } = useContext(UserContext);
     const userId = userData?.user?.id;
+
+    const [imageData, setImageData] = useState('');
 
     //storing data
     const [formData, setFormData] = useState({
@@ -43,13 +46,29 @@ const AddItem = (props) => {
         }
     };
 
+    const handleImageChange = (e) => {
+        handleChange(e);
+        storeImage(e);
+    };
+
+    const storeImage = (e) => {
+        const { name } = e.target;
+        const image = e.target.files[0];
+        if (image) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                setImageData(e.target.result);
+            };
+            reader.readAsDataURL(image);
+        };
+    }
+
     //submit Handler
     const submitHandler = async (event) => {
-        event.preventDefault();
         
-        console.log(formData);
-
+        event.preventDefault();
         try {
+            formData.img1 = imageData;
             formData.user_id = userId;
             await axios.post('http://localhost:8082/api/items/listing', formData); //add to db
             router.push('/profile'); // back to profile
@@ -83,6 +102,7 @@ const AddItem = (props) => {
             condition: '',
             price: '',
         });
+        console.log(photoMap); // This is the actual image data (base64-encoded)
 
     };
 
@@ -96,7 +116,7 @@ const AddItem = (props) => {
                     <p className='instructions'>Add up to four photos in JPEG or PNG format.</p>
                     <div className='photo-container'>
                         <div className="uploader">
-                            <input id="input" name="img1" type="file" accept=".jpg, .jpeg, .png" value={formData.img1} onChange={handleChange}/>
+                            <input id="input" name="img1" type="file" accept=".jpg, .jpeg, .png" value={formData.img1} onChange={handleImageChange}/>
                             <input id="input" name="img2" type="file" accept=".jpg, .jpeg, .png" value={formData.img2} onChange={handleChange}/>
                             <input id="input" name="img3" type="file" accept=".jpg, .jpeg, .png" value={formData.img3} onChange={handleChange}/>
                             <input id="input" name="img4" type="file" accept=".jpg, .jpeg, .png" value={formData.img4} onChange={handleChange}/>
