@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useContext } from 'react';
 import UserContext from '../../../../context/UserContext';
-import { photoMap, addKeyWithArray, deleteKeyWithArray } from '../PhotoMap';
 
 const AddItem = () => {
     const router = useRouter();

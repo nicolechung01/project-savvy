@@ -1,6 +1,6 @@
 "use client";
 import {useState} from 'react';
-import ItemsList from "../components/ItemsList.js";
+import ItemsList from "../components/Listing/ItemsList.js";
 import Header from "../components/Header/Header.js"
 import styles from '../App.css';
 import { UserProvider } from '../../../context/UserContext.js';

@@ -7,16 +7,12 @@ import Header from '../components/Header/Header';
 
 
 export default function Listing() {
-    const handleAddItem = (newItem) => {
-        // Define logic to add the new item to the list
-        // console.log("New item added:", newItem);
-    };
 
     return (
         <UserProvider>
             <div className='listing-form-main'>
                 <Header />
-                <AddItem onAddItem={handleAddItem}/>
+                <AddItem />
             </div>
         </UserProvider>
     )

@@ -2,13 +2,14 @@ import { useState, useContext, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
 import UserContext from '../../../../context/UserContext';
-import ItemsList from '../ItemsList';
+import ItemsList from './ItemsList';
 
 function UserItemsList() {
     const {userData} = useContext(UserContext);
     const userId = userData?.user?.id;
 
     const [items, setItems] = useState([]);
+    console.log(userData);
 
     // request to database goes here
     useEffect(() => {

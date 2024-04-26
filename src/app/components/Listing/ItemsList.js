@@ -1,8 +1,7 @@
 import React from 'react';
 import Item from './Item';
 import styles from './ItemsList.css';
-import LargeListItemButton from './Banner/LargeListItemButton';
-import { photoMap } from './PhotoMap';
+import LargeListItemButton from '../Banner/LargeListItemButton';
 
 
 const ItemsList = ({ items }) => {
@@ -15,7 +14,6 @@ const ItemsList = ({ items }) => {
     )
   }
 
-  console.log(photoMap);
   return (
     <div className="container">
       <ul className='list'>

@@ -1,7 +1,7 @@
 import styles from "./LogInForm.css"
 import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-import UserContext from "../context/UserContext";
+import UserContext from "../../../../context/UserContext";
 import { useRouter } from 'next/navigation';
 
 const LogInForm = () => {

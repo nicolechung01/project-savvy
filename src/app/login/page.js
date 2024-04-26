@@ -1,7 +1,7 @@
 "use client";
 import { UserProvider } from "../../../context/UserContext";
 import Logo from "../components/Header/Logo";
-import LogInForm from "../../../forms/LogInForm";
+import LogInForm from "../components/forms/LogInForm";
 import styles from "./LogInPage.css"
 
 export default function LogInPage() {

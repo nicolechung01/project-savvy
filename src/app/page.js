@@ -1,7 +1,7 @@
 "use client";
 import { UserProvider } from '../../context/UserContext.js';
 import Header from './components/Header/Header.js';
-import Category from './components/Category.js';
+import Category from './components/Listing/Category.js';
 import Cover from './components/Cover/Cover.js';
 import styles from './App.css';
 import User from '../../models/User.js';

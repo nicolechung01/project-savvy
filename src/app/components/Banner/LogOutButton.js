@@ -10,6 +10,7 @@ function LogOutButton () {
     const handleLogout = () => {
         setUserData({ token: undefined, user: undefined });
         localStorage.removeItem('auth-token');
+        localStorage.removeItem('auth-user');
         router.push('/');
     }
     return (

@@ -18,6 +18,18 @@ const UserSchema = new mongoose.Schema({
         trim: true,
         minLength: 6,
     },
+    pfp: {
+        type: String,
+        required: false,
+    },
+    bio: {
+        type: String,
+        required: false,
+    },
+    link: {
+        type: String,
+        required: false,
+    }
 });
 
 const User = mongoose.model('user', UserSchema);

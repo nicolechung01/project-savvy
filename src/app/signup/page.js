@@ -1,9 +1,10 @@
 "use client";
-import { UserProvider } from "../../../context/UserContext";
+import { useContext } from "react";
+import UserContext, { UserProvider } from "../../../context/UserContext";
 import Logo from "../components/Header/Logo";
-import SignUpForm from "../../../forms/SignUpForm";
+import SignUpForm from "../components/forms/SignUpForm";
 import styles from "../login/LogInPage.css"
-import { useRouter } from 'next/navigation';
+
 
 export default function SignUpPage() {
   return (

@@ -80,25 +80,20 @@ userRouter.post("/tokenIsValid", async (req, res) => {
     }
 });
 
-// Listing Route
+//get user from db
+userRouter.get('/:userId', (req, res) => {
+    User.findById(req.params.userId)
+    .then((user) => res.json(user))
+    .catch((err) => res.status(404).json({nouserfound: 'No User Found'}));
+});
 
-//retrieve user info route
-
-
-// Profile Route (Protected)
-userRouter.get("/profile", auth, async (req, res) => {
-    try {
-        const userId = req.user;
-
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).json({ msg: "User not found" });
-        }
-
-        res.json(user);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+// update user data in db
+userRouter.put('/:userId', bodyParser.json(), (req, res) => {
+    User.findByIdAndUpdate(req.params.userId, req.body)
+    .then((user) => res.json({ msg: 'Updated Successfully' }))
+    .catch((err) =>
+        res.status(400).json({ error: 'Unable to Update' })
+    );
 });
 
 module.exports = userRouter;
