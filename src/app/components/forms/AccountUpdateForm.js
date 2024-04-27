@@ -31,6 +31,20 @@ const AccountUpdateForm = () => {
         handleProfileChange(e);
     };
 
+    const storeImage = (e) => { //new
+
+        //using compressed image
+        const image = e.target.files[0];
+        if (image) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                setImageData(e.target.result);
+                console.log(e.target.result);
+            };
+            reader.readAsDataURL(image);
+        };
+    }
+
     const handleProfileChange = (e) => { //for profile portion
         setProfileData({
             ...profileData,
