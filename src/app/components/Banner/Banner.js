@@ -4,6 +4,7 @@ import styles from './Banner.css';
 import { useRouter } from 'next/navigation'
 import { useContext, useState, useEffect } from 'react';
 import UserContext from '../../../../context/UserContext';
+import EditProfileButton from './EditProfileButton';
 import axios from 'axios';
 
 function Banner() {
@@ -39,13 +40,17 @@ function Banner() {
                     <div className="userInfo">
                         <h1 className='username'>{username}</h1>
                         <p className='bio'>{user.bio}</p>
+                        <p className='bio'>{user.link}</p>
                     </div>
                 </div>
                     <div className='nav-container'>
-                        <div className="list-item">
+                        <div>
+                            <EditProfileButton />
+                        </div>
+                        <div>
                             <ListItemButton />
                         </div>
-                        <div className="logout">
+                        <div>
                             <LogOutButton />
                         </div>
                     </div>

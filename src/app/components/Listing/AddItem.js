@@ -137,8 +137,8 @@ const AddItem = () => {
                         <h3 className='subcategory'>Category</h3>
                             <select id="dropdown" name="category" value={formData.category} onChange={handleChange}>
                                 <option hidden selected value></option>
-                                <option value="Women's">Women's</option>
-                                <option value="Men's">Men's</option>
+                                <option value="Womens">Women's</option>
+                                <option value="Mens">Men's</option>
                                 <option value="Home">Home</option>
                             </select>
                     </div>
