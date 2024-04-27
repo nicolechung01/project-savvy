@@ -33,12 +33,12 @@ const ItemSchema = new mongoose.Schema({
     },
     brand: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
     },
     size: {
         type: String,
-        required: true,
+        required: false,
     },
     condition: {
         type: String,

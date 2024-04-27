@@ -1,36 +1,26 @@
 "use client";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import ItemsList from "../components/Listing/ItemsList.js";
 import Header from '../components/Header/Header.js';
 import styles from '../App.css';
 import { UserProvider } from '../../../context/UserContext.js';
+import axios from 'axios';
 
 export default function Women() {
 
-    const [womensList, setWomensList] = useState([
-        {
-            id: '1',
-            name: 'Green Long Sleeve Top',
-            img: '/assets/womenshirt.jpg',
-            description: 'green long sleeve shirt with flower detail',
-            size: 'small',
-            condition: 'Used - Good',
-            price: '$14.00'
-        },
-        {
-            id: '2',
-            name: 'White Baggy Jeans',
-            img: '/assets/womensjeans.jpg',
-            description: 'white baggy jeans',
-            size: 'medium',
-            condition: 'Used - Good',
-            price: '$20.00'
-        }
-    ]);
-
-    const addWomensHandler = item => {
-        setWomensList((prevWomensList) => [...prevWomensList, item]);
-    };
+    const [womensList, setWomensList] = useState([]);
+    //fetching all womens
+    useEffect(() => {
+        const fetchItems = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8082/api/items/category/Womens`);
+                setWomensList(response.data);
+            } catch (error) {
+                console.error('Retrieval failed:', error);
+            }
+        };
+        fetchItems();
+    });
 
     return (
         <UserProvider>

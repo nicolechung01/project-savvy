@@ -18,6 +18,21 @@ router.get("/:userId", async (req, res) => {
     }
 });
 
+//get items by category
+router.get("/category/:cat", async (req, res) => {
+    const cat = req.params.cat;
+    try {
+        const items = await Item.find({ category: cat });
+        if (!items || items.length === 0) {
+            return res.status(404).json({ noitemsfound: 'No Items Found' });
+        }
+        res.json(items);
+    } catch (error) {
+        console.error('Error retrieving items:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 
 // POST Listing                                                                                                                                                                                             
 router.post('/listing', bodyParser.json(), (req, res) => {                                                                                                                                               
@@ -25,27 +40,5 @@ router.post('/listing', bodyParser.json(), (req, res) => {
         .then(item => res.json({ msg: "added successfully" }))                                                                                                                                           
         .catch(err => res.status(400).json({ error: 'Error' }));                                                                                                                                         
 });                                                                                                                                                                                                      
-
-
-// GET Retrievals, might need to filter by category                                                                                                                                                         
-
-router.get('/women', (req, res) => {
-    Item.find()
-        .then(items => res.json(items))
-        .catch(err => res.status(404).json({ noItemsFound: "No items found" }));
-});
-
-router.get('/men', (req, res) => {
-    Item.find()
-        .then(items => res.json(items))
-        .catch(err => res.status(404).json({ noItemsFound: "No items found" }));
-});
-
-router.get('/home', (req, res) => {
-    Item.find()
-        .then(items => res.json(items))
-        .catch(err => res.status(404).json({ noItemsFound: "No items found" }));
-});
-
 
 module.exports = router;

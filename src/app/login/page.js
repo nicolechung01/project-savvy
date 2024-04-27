@@ -7,7 +7,7 @@ import styles from "./LogInPage.css"
 export default function LogInPage() {
   return (
     <UserProvider>
-      <main className="main">
+      <main>
         <div className="logo-container">
           <Logo />
           <h1 className="title">Log In</h1>

@@ -9,7 +9,7 @@ function UserItemsList() {
     const userId = userData?.user?.id;
 
     const [items, setItems] = useState([]);
-    console.log(userData);
+    console.log(userId);
 
     // request to database goes here
     useEffect(() => {
