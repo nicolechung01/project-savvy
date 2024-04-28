@@ -2,9 +2,9 @@ import { useState, useContext, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
 import UserContext from '../../../../context/UserContext';
-import ItemsList from './ItemsList';
 import UserItem from './Item';
 import LargeListItemButton from '../Banner/LargeListItemButton';
+import styles from './ItemsList.css';
 
 function UserItemsList() {
     const {userData} = useContext(UserContext);

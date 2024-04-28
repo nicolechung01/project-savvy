@@ -34,3 +34,220 @@
     color: gray;
     margin-left: 20px;
 }
+
+.item-disp {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Inter' sans-serif;
+    margin-top: 65px;
+}
+
+.item-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+.item-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 5px;
+    justify-content: center;
+}
+
+.item-name {
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.item-info {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+.description {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.add-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-button {
+    width: 100%;
+    color: white;
+    background-color: black;
+    outline: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    margin-top: 50px;
+    padding: 8px;
+    border-radius: 25px;
+}
+
+.listing-form-main {
+    margin: 10px 30px;
+    display: flex;
+    flex-direction: column;
+}
+.listing-header {
+    font-family: 'Unbounded';
+    font-weight: 600;
+    color: rgb(27, 35, 61);
+}
+.listing-main-container {
+    font-family: 'Inter' sans-serif;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+    padding: 10px;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 750px;
+}
+.listing-subsection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.listing-subheader {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.subheader-photos {
+    font-weight: 500;
+}
+
+.instructions {
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.listing-subcategory {
+    font-weight: 400;
+    margin: 10px 0;
+    color: gray;
+}
+
+.photo-container   {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.uploader {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+input[type="file"]::file-selector-button {
+    color: white;
+    font-family: 'Unbounded';
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    background-color: rgb(0, 0, 0);
+    transition: background-color 300ms;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #6b6b6b;
+}
+  
+#description {
+    width: 100%;
+    background-color: transparent;
+    height: 150px;
+    color: black;
+    padding: 10px;
+    font-size: 15px;
+    font-family: 'Inter' sans-serif;
+}
+
+#dropdown {
+    font-family: 'Inter' sans-serif;
+    color: black;
+    width: 100%;
+    height: 35px;
+    font-size: 15px;
+    background-color: transparent;
+    padding: 0;
+}
+#dropdown option {
+    color: black;
+    width: 100%;
+    height: 30px;
+    font-size: 50px;
+}
+
+#name-input {
+    width: 100%;
+    height: 35px;
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    outline: black solid 1px;
+}
+
+#brand-input {
+    width: 100%;
+    height: 35px;
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    outline: black solid 1px;
+}
+
+#price-input {
+    width: 100%;
+    height: 35px;
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    outline: black solid 1px;
+}
+
+.list-button {
+    margin: 30px 0;
+    height: 40px;
+    width: 100%;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    font-family: 'Unbounded';
+    font-weight: 600;
+    font-size: 22px;
+    padding: 5px 10px 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.list-button:hover {
+    background-color: rgb(171, 171, 171);
+}

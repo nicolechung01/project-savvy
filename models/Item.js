@@ -13,13 +13,13 @@ const ItemSchema = new mongoose.Schema({
         required: true,
     },
     img2: {
-        type: Buffer,
+        type: String,
         required: false,
     },img3: {
-        type: Buffer,
+        type: String,
         required: false,
     },img4: {
-        type: Buffer,
+        type: String,
         required: false,
     },
     description: {

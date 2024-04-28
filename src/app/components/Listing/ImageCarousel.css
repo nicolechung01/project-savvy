@@ -1,0 +1,26 @@
+.image-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 550px;
+    height: 550px;
+  }
+
+.button {
+    color: black;
+}
+
+.img {
+    min-width: 100%;
+    scroll-snap-align: start;
+}
+
+.prev {
+    left: 0;
+}
+  
+.next {
+    right: 0;
+}
+  

@@ -5,7 +5,12 @@ import Link from 'next/link'
 const UserItem = (props) => {
 
     return (    
-        <Link href={{ pathname: '/details', query: { item: props.id}} }>
+        <Link
+            href={{
+                pathname: '/lister-details',
+                query: { item: props.id },
+            }}
+        >
             <li className='item-container'>
                 <img src={props.img} className="item-img" alt={props.name} />
                 <div className='item-info'>

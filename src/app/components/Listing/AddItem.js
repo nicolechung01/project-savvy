@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../../listing/Listing.css';
+import styles from '../../App.css';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useContext } from 'react';
@@ -10,7 +10,10 @@ const AddItem = () => {
     const { userData } = useContext(UserContext);
     const userId = userData?.user?.id;
 
-    const [imageData, setImageData] = useState('');
+    const [imageData1, setImageData1] = useState('');
+    const [imageData2, setImageData2] = useState('');
+    const [imageData3, setImageData3] = useState('');
+    const [imageData4, setImageData4] = useState('');
 
     //storing data
     const [formData, setFormData] = useState({
@@ -51,13 +54,22 @@ const AddItem = () => {
     };
 
     const storeImage = (e) => {
+        const { name } = e.target;
 
         //using compressed image
         const image = e.target.files[0];
         if (image) {
             const reader = new FileReader();
             reader.onload = function(e) {
-                setImageData(e.target.result);
+                if (name === 'img1') {
+                    setImageData1(e.target.result);
+                } else if (name === 'img2') {
+                    setImageData2(e.target.result);
+                } else if (name === 'img3') {
+                    setImageData3(e.target.result);
+                } else {
+                    setImageData4(e.target.result);
+                }
                 console.log(e.target.result);
             };
             reader.readAsDataURL(image);
@@ -69,7 +81,10 @@ const AddItem = () => {
         
         event.preventDefault();
         try {
-            formData.img1 = imageData;
+            formData.img1 = imageData1;
+            formData.img2 = imageData2;
+            formData.img3 = imageData3;
+            formData.img4 = imageData4;
             formData.user_id = userId;
             await axios.post('http://localhost:8082/api/items/listing', formData); //add to db
             router.push('/profile'); // back to profile
@@ -107,34 +122,34 @@ const AddItem = () => {
     };
 
     return (
-        <div className='main-container'>
+        <div className='listing-main-container'>
         <form onSubmit={submitHandler} method='POST' action='/listing'>
             <div className='form-container'>
-                <h1 className='header'>List an Item</h1>
-                <div className='subsection'>
+                <h1 className='listing-header'>List an Item</h1>
+                <div className='listing-subsection'>
                     <h2 className='subheader-photos'>Photos</h2>
                     <p className='instructions'>Add up to four photos in JPEG or PNG format.</p>
                     <div className='photo-container'>
                         <div className="uploader">
                             <input id="input" name="img1" type="file" accept=".jpg, .jpeg, .png" value={formData.img1} onChange={handleImageChange}/>
-                            <input id="input" name="img2" type="file" accept=".jpg, .jpeg, .png" value={formData.img2} onChange={handleChange}/>
-                            <input id="input" name="img3" type="file" accept=".jpg, .jpeg, .png" value={formData.img3} onChange={handleChange}/>
-                            <input id="input" name="img4" type="file" accept=".jpg, .jpeg, .png" value={formData.img4} onChange={handleChange}/>
+                            <input id="input" name="img2" type="file" accept=".jpg, .jpeg, .png" value={formData.img2} onChange={handleImageChange}/>
+                            <input id="input" name="img3" type="file" accept=".jpg, .jpeg, .png" value={formData.img3} onChange={handleImageChange}/>
+                            <input id="input" name="img4" type="file" accept=".jpg, .jpeg, .png" value={formData.img4} onChange={handleImageChange}/>
                         </div>
                     </div>        
                 </div>
-                <div className='subsection'>
-                    <h2 className='subheader'>Name</h2>
+                <div className='listing-subsection'>
+                    <h2 className='listing-subheader'>Name</h2>
                     <input id="name-input" name="name" type="text" value={formData.name} onChange={handleChange}/>
                 </div>
-                <div className='subsection'>
-                    <h2 className='subheader'>Description</h2>
+                <div className='listing-subsection'>
+                    <h2 className='listing-subheader'>Description</h2>
                     <textarea id="description" name="description" placeholder="e.g. small white t-shirt" value={formData.description} onChange={handleChange}/>
                 </div>
-                <div className='subsection'>
-                    <h2 className='subheader'>Info</h2>
+                <div className='listing-subsection'>
+                    <h2 className='listing-subheader'>Info</h2>
                     <div>
-                        <h3 className='subcategory'>Category</h3>
+                        <h3 className='listing-subcategory'>Category</h3>
                             <select id="dropdown" name="category" value={formData.category} onChange={handleChange}>
                                 <option hidden selected value></option>
                                 <option value="Womens">Women's</option>
@@ -143,11 +158,11 @@ const AddItem = () => {
                             </select>
                     </div>
                     <div>
-                        <h3 className='subcategory'>Brand</h3>
+                        <h3 className='listing-subcategory'>Brand</h3>
                             <input id="brand-input" name="brand" type="text" value={formData.brand} onChange={handleChange}/>
                     </div>
                     <div>
-                        <h3 className='subcategory'>Size</h3>
+                        <h3 className='listing-subcategory'>Size</h3>
                             <select id="dropdown" name="size" value={formData.size} onChange={handleChange}>
                                 <option hidden selected value></option>
                                 <optgroup label="Clothing">
@@ -184,7 +199,7 @@ const AddItem = () => {
                             </select>
                     </div>
                     <div>
-                        <h3 className='subcategory'>Condition</h3>
+                        <h3 className='listing-subcategory'>Condition</h3>
                             <select id="dropdown" name="condition" value={formData.condition} onChange={handleChange}>
                                 <option hidden selected value></option>
                                 <option value="New">New</option>
@@ -194,8 +209,8 @@ const AddItem = () => {
                             </select>
                     </div>
                 </div>
-                <div className='subsection'>
-                    <h2 className='subheader'>Item Price</h2>
+                <div className='listing-subsection'>
+                    <h2 className='listing-subheader'>Item Price</h2>
                     <input id="price-input" name="price" type="text" placeholder="$0.00" value={formData.price} onChange={handleChange}/>
                 </div>
                 <button className='list-button' type="submit">List Item</button>
