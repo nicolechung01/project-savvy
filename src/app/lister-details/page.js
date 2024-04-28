@@ -22,8 +22,10 @@ export default function ListerDetails() {
         const fetchItem = async () => {
             try {
                 if (itemId) {
-                    const response = await axios.get(`http://localhost:8082/api/items/${itemId}`);
-                    setItem(response.data);
+                    const response = await axios.get(`http://localhost:8082/api/items/${itemId}`)
+                    .then((res) => {    // handling promise from item read operation
+                        setItem(response.data);     // setting item with response
+                    });
                 }
             } catch (error) {
                 console.error('Retrieval failed:', error);
@@ -34,8 +36,10 @@ export default function ListerDetails() {
 
     const deleteItem = async () => {
         try {
-            await axios.delete(`http://localhost:8082/api/items/${itemId}`);
-            router.push('/profile');
+            await axios.delete(`http://localhost:8082/api/items/${itemId}`)
+            .then((rest) => {       // handling promise from item delete operation
+                router.push('/profile');    // routing back to profile client route
+            })
         } catch (error) {
             console.log(error);
         }

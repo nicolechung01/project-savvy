@@ -17,8 +17,10 @@ function Banner() {
             try {
                 if (userId) {
                     // Fetch user data using userId
-                    const response = await axios.get(`http://localhost:8082/api/users/${userId}`);
-                    setUser(response.data); // Set the user data to the state
+                    const response = await axios.get(`http://localhost:8082/api/users/${userId}`)
+                    .then((res) => {        // handling prjomise from user read operation
+                        setUser(response.data); // Set the user data to the state
+                    })
                 }
             } catch (error) {
                 console.error('Retrieval failed:', error);

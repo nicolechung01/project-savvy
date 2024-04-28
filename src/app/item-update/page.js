@@ -107,8 +107,10 @@ export default function ItemUpdate() {
                 ...filteredFormData,
             }
             console.log(requestBody);
-            await axios.put(`http://localhost:8082/api/items/${itemId}`, requestBody); //update to db
-            router.push('/profile'); // back to profile
+            await axios.put(`http://localhost:8082/api/items/${itemId}`, requestBody) //update to db
+            .then((res) => {        // handling promise from item update operation
+                router.push('/profile');    // back to profile
+            })
         } catch (error) {
             console.error('failed:', error);
         }   

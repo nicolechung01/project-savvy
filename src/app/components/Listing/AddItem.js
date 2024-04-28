@@ -86,8 +86,10 @@ const AddItem = () => {
             formData.img3 = imageData3;
             formData.img4 = imageData4;
             formData.user_id = userId;
-            await axios.post('http://localhost:8082/api/items/listing', formData); //add to db
-            router.push('/profile'); // back to profile
+            await axios.post('http://localhost:8082/api/items/listing', formData) //add to db
+            .then((res) => {        // handling promise from item create operation
+                router.push('/profile'); // back to profile
+            })
         } catch (error) {
             console.error('failed:', error);
         }   

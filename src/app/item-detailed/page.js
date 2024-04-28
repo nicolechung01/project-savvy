@@ -19,8 +19,10 @@ export default function Detailed() {
         const fetchItem = async () => {
             try {
                 if (itemId) {
-                    const response = await axios.get(`http://localhost:8082/api/items/${itemId}`);
-                    setItem(response.data);
+                    const response = await axios.get(`http://localhost:8082/api/items/${itemId}`)
+                    .then((res) => {     // handling promise from item read operation
+                        setItem(response.data);     // setting item with response 
+                    });
                 }
             } catch (error) {
                 console.error('Retrieval failed:', error);
