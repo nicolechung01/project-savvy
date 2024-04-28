@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
 import UserContext from '../../../../context/UserContext';
-import UserItem from './Item';
+import UserItem from './UserItem';
 import LargeListItemButton from '../Banner/LargeListItemButton';
 import styles from './ItemsList.css';
 
@@ -45,9 +45,6 @@ function UserItemsList() {
                     id={item._id}
                     name={item.name}
                     img={item.img1}
-                    description={item.description}
-                    size={item.size}
-                    condition={item.condition}
                     price={item.price}
                 />
                 ))}

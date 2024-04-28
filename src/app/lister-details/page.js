@@ -6,8 +6,12 @@ import styles from '../App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ImageCarousel from '../components/Listing/ImageCarousel';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function ListerDetails() {
+
+    const router = useRouter();
 
     const searchParams = useSearchParams()
     const itemId = searchParams.get('item');
@@ -27,9 +31,16 @@ export default function ListerDetails() {
         };
         fetchItem(); // Call fetchItem function
     }, [itemId]); // Pass itemId as a dependency to useEffect
-    
-    console.log(item);
 
+    const deleteItem = async () => {
+        try {
+            await axios.delete(`http://localhost:8082/api/items/${itemId}`);
+            router.push('/profile');
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    
     return (
         <UserProvider>
         <main className="main">
@@ -49,10 +60,17 @@ export default function ListerDetails() {
                         <hr></hr>
                         <h3 className='item-info'>Description</h3>
                         <p className='description'>{item.description}</p>
-                        <div className='add-button-container' >
-                            <button className='edit-button'>Edit</button>
-                            <button className='delete-button'>Delete</button>
-                        </div>
+                        
+                        <button className='edit-item-button'>
+                            <Link
+                                href={{
+                                    pathname: '/item-update',
+                                    query: { item: itemId },
+                                }}
+                            >Edit</Link>
+                        </button>
+                        <button onClick={deleteItem} className='delete-button'>Delete</button>
+                        
                     </div>
                 </div>
             )}       

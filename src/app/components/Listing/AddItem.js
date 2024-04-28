@@ -92,19 +92,6 @@ const AddItem = () => {
             console.error('failed:', error);
         }   
 
-        /*const newItem = {
-            id: Math.random().toString(), 
-            name: formData.name,
-            img: formData.img,
-            description: formData.description,
-            category: formData.category,
-            brand: formData.brand,
-            size: formData.size,
-            condition: formData.condition,
-            price: formData.price,
-        };*/
-        
-        // Clear the form fields
         setFormData({
             name: '',
             img1: '',

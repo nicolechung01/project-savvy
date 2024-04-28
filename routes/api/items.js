@@ -39,6 +39,15 @@ router.get("/:id", async (req, res) => {
     then((item) => res.json(item));
 });
 
+//update item
+router.put('/:id', bodyParser.json(), (req, res) => {
+    Item.findByIdAndUpdate(req.params.id, req.body)
+    .then((item) => res.json({ msg: 'Updated Successfully' }))
+    .catch((err) =>
+        res.status(400).json({ error: 'Unable to Update' })
+    );
+});
+
 //delete individual id
 router.delete('/:id', (req,res) => {
     Item.findByIdAndDelete(req.params.id)
