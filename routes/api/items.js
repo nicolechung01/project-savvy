@@ -39,6 +39,28 @@ router.get("/:id", async (req, res) => {
     then((item) => res.json(item));
 });
 
+//delete individual id
+router.delete('/:id', (req,res) => {
+    Item.findByIdAndDelete(req.params.id)
+    .then((item) => res.json({ msg: 'Item Deleted Successfully'}))
+    .catch((err) => res.status(404).json({ error: 'Nonexistent Item'}));
+});
+
+//delete [user]'s items (when deleting account)
+router.delete("/user/:userId", async (req, res) => {
+    const userId = req.params.userId;
+    try {
+        const items = await Item.deleteMany({ user_id: userId });
+        if (!items || items.length === 0) {
+            return res.status(404).json({ noitemsfound: 'No Items Found' });
+        }
+        res.json(items);
+    } catch (error) {
+        console.error('Error deleting items:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 // POST Listing                                                                                                                                                                                             
 router.post('/listing', bodyParser.json(), (req, res) => {                                                                                                                                               
     Item.create(req.body)                                                                                                                                                                                

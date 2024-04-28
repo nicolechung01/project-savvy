@@ -5,6 +5,7 @@ import Logo from '../components/Header/Logo';
 import styles from './ProfileUpdate.css'
 
 export default function Account() {
+    
     return (
         <UserProvider>
             <main>

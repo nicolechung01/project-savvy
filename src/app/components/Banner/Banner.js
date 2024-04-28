@@ -11,7 +11,6 @@ function Banner() {
     const {userData} = useContext(UserContext);
     const [user, setUser] = useState({}); // State to hold user data
     const userId = userData?.user?.id;
-    const username = userData?.user?.username;
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -38,7 +37,7 @@ function Banner() {
                         <img src={user.pfp} alt="Profile Picture" className="profilePicture" />
                     </div>
                     <div className="userInfo">
-                        <h1 className='username'>{username}</h1>
+                        <h1 className='username'>{user.username}</h1>
                         <p className='bio'>{user.bio}</p>
                         <p className='bio'>{user.link}</p>
                     </div>

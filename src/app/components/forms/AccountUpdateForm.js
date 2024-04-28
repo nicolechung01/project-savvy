@@ -7,12 +7,15 @@ import styles from '../../account/ProfileUpdate.css';
 
 const AccountUpdateForm = () => {
 
-    const { userData } = useContext(UserContext);
+    const { userData, setUserData } = useContext(UserContext);
     const userId = userData?.user?.id; // used to update prof
     const [imageData, setImageData] = useState('');
     const router = useRouter();
 
-    const [profileData, setProfileData] = useState({
+    const [accountData, setAccountData] = useState({
+        email: '',
+        username: '',
+        password: '',
         pfp: '',
         bio: '',
         link: '',
@@ -28,7 +31,7 @@ const AccountUpdateForm = () => {
 
     const handleImageChange = (e) => {
         storeImage(e);
-        handleProfileChange(e);
+        handleAccountChange(e);
     };
 
     const storeImage = (e) => { //new
@@ -45,29 +48,42 @@ const AccountUpdateForm = () => {
         };
     }
 
-    const handleProfileChange = (e) => { //for profile portion
-        setProfileData({
-            ...profileData,
+    const handleAccountChange = (e) => {
+        setAccountData({
+            ...accountData,
             [e.target.name]: e.target.value
         });
     };
 
-    const updateProfile = async (e) => {
+    const updateAccount = async (e) => {
         e.preventDefault();
         try {
             if (imageData !== '') {
-                profileData.pfp = imageData;
+                accountData.pfp = imageData;
             }
             
-            const filteredProfileData = Object.fromEntries(
-                Object.entries(profileData).filter(([key, value]) => value !== '')
+            const filteredAccountData = Object.fromEntries(
+                Object.entries(accountData).filter(([key, value]) => value !== '')
             );
             
             const requestBody = {
-                ...filteredProfileData,
+                ...filteredAccountData,
             }
             await axios.put(`http://localhost:8082/api/users/${userId}`, requestBody);
             router.push('/profile'); 
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
+    const deleteAccount = async (e) => {
+        try {
+            await axios.delete(`http://localhost:8082/api/items/user/${userId}`);
+            await axios.delete(`http://localhost:8082/api/users/${userId}`);
+            setUserData({ token: undefined, user: undefined });
+            localStorage.removeItem('auth-token');
+            localStorage.removeItem('auth-user');
+            router.push('/');
         } catch (error) {
             console.log(error);
         }
@@ -76,7 +92,7 @@ const AccountUpdateForm = () => {
     return (
         <UserProvider>
             <main className="main">
-                <form onSubmit={updateProfile}>
+                <form onSubmit={updateAccount}>
                     <div className='form-container'>
                         <div className="label-container">
                             <label className="form-label">Profile Picture</label>
@@ -87,11 +103,41 @@ const AccountUpdateForm = () => {
                                     name="pfp"
                                     type="file"
                                     accept=".jpg, .jpeg, .png"
-                                    value={profileData.pfp}
+                                    value={accountData.pfp}
                                     onChange={handleImageChange}
                                 />
                             </div>
                         </div>
+                        <div className="label-container">
+                            <label className="form-label">Email</label>
+                        </div>                        
+                        <input className="form-input"
+                            id="email-input"
+                            name="email"
+                            type="text"
+                            value={accountData.email}
+                            onChange={handleAccountChange}
+                        />
+                        <div className="label-container">
+                            <label className="form-label">Username</label>
+                        </div>                        
+                        <input className="form-input"
+                            id="username-input"
+                            name="username"
+                            type="text"
+                            value={accountData.username}
+                            onChange={handleAccountChange}
+                        />
+                        <div className="label-container">
+                            <label className="form-label">Password</label>
+                        </div>                        
+                        <input className="form-input"
+                            id="password-input"
+                            name="password"
+                            type="password"
+                            value={accountData.password}
+                            onChange={handleAccountChange}
+                        />
                         <div className="label-container">
                             <label className="form-label">Bio</label>
                         </div>                        
@@ -99,8 +145,8 @@ const AccountUpdateForm = () => {
                             id="bio-input"
                             name="bio"
                             type="text"
-                            value={profileData.bio}
-                            onChange={handleProfileChange}
+                            value={accountData.bio}
+                            onChange={handleAccountChange}
                         />
                         <div className="label-container">
                             <label className="form-label">Link</label>
@@ -109,8 +155,8 @@ const AccountUpdateForm = () => {
                             id="link-input"
                             name="link"
                             type="text"
-                            value={profileData.link}
-                            onChange={handleProfileChange}
+                            value={accountData.link}
+                            onChange={handleAccountChange}
                         />
                         <div className="error-container"></div>
                         <button className="form-button" type="submit">
@@ -118,6 +164,9 @@ const AccountUpdateForm = () => {
                         </button>
                     </div>
                 </form>
+                <button onClick={deleteAccount} className="delete-button">
+                    Delete Profile
+                </button>
             </main>
         </UserProvider>
     )

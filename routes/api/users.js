@@ -88,12 +88,24 @@ userRouter.get('/:userId', (req, res) => {
 });
 
 // update user data in db
-userRouter.put('/:userId', bodyParser.json(), (req, res) => {
+userRouter.put('/:userId', bodyParser.json(), async (req, res) => {
+    if ('password' in req.body) {
+        const hashedPassword = await bcryptjs.hash(req.body.password, 8);
+        req.body.password = hashedPassword;
+    }
     User.findByIdAndUpdate(req.params.userId, req.body)
     .then((user) => res.json({ msg: 'Updated Successfully' }))
     .catch((err) =>
         res.status(400).json({ error: 'Unable to Update' })
     );
 });
+
+// delete user from db
+userRouter.delete('/:userId', (req,res) => {
+    User.findByIdAndDelete(req.params.userId)
+    .then((item) => res.json({ msg: 'Item Deleted Successfully'}))
+    .catch((err) => res.status(404).json({ error: 'Nonexistent Item'}));
+});
+
 
 module.exports = userRouter;
