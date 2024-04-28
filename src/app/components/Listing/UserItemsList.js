@@ -16,7 +16,7 @@ function UserItemsList() {
         const fetchItems = async () => {
             try {
                 if (userId) {
-                    const response = await axios.get(`http://localhost:8082/api/items/${userId}`);
+                    const response = await axios.get(`http://localhost:8082/api/items/user/${userId}`);
                     setItems(response.data);
                 }
             } catch (error) {

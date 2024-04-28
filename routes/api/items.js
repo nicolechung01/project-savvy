@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 const Item = require('../../models/Item');
 
 // get [user]'s items
-router.get("/:userId", async (req, res) => {
+router.get("/user/:userId", async (req, res) => {
     const userId = req.params.userId;
     try {
         const items = await Item.find({ user_id: userId });
@@ -35,14 +35,6 @@ router.get("/category/:cat", async (req, res) => {
 
 // get [individual] items
 router.get("/:id", async (req, res) => {
-    //const imgId = req.params.imgId;
-    // try {
-    //     const item = await Item.findById(req.params.id);
-    //     res.json(item);
-    // } catch (error) {
-    //     console.error('Error retrieving item:', error);
-    //     res.status(500).json({ error: 'Internal Server Error' });
-    // }
     Item.findById(req.params.id).
     then((item) => res.json(item));
 });
