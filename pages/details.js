@@ -1,11 +1,13 @@
 "use client";
-import { useRouter } from 'next/navigation';
-import Header from '../components/Header/Header';
+import { useRouter } from 'next/router';
+import Header from '../src/app/components/Header/Header';
 import styles from './ItemDetailed.css';
-import { UserProvider } from '../../../context/UserContext';
+import { UserProvider } from '../context/UserContext';
 
 export default function Details() {
-
+       const query = new URLSearchParams(this.props.location.search);
+       const token = query.get('item');
+       console.log(token);
     return (
         <UserProvider>
         <main className="main">

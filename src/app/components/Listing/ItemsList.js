@@ -19,7 +19,7 @@ const ItemsList = ({ items }) => {
       <ul className='list'>
         {items.map(item => (
           <Item
-            key={item._id}
+            id={item._id}
             name={item.name}
             img={item.img1}
             description={item.description}
