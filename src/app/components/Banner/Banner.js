@@ -34,13 +34,13 @@ function Banner() {
             <div className="banner">
                 <div className='profile-disp'>
                     <div className="pictureArea">
-                        <img src={user.pfp} alt="Profile Picture" className="profilePicture" />
+                        { user && <img src={user.pfp} alt="Profile Picture" className="profilePicture" />}
                     </div>
-                    <div className="userInfo">
+                    {user && <div className="userInfo">
                         <h1 className='username'>{user.username}</h1>
                         <p className='bio'>{user.bio}</p>
                         <p className='bio'>{user.link}</p>
-                    </div>
+                    </div>}
                 </div>
                     <div className='nav-container'>
                         <div>

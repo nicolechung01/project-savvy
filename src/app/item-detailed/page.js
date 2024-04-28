@@ -29,8 +29,6 @@ export default function Detailed() {
         fetchItem(); // Call fetchItem function
     }, [itemId]); // Pass itemId as a dependency to useEffect
     
-    console.log(item);
-
     return (
         <UserProvider>
         <main className="main">
