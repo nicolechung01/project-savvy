@@ -7,6 +7,7 @@ import styles from '../App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ImageCarousel from '../components/Listing/ImageCarousel';
+import { resolve } from 'styled-jsx/css';
 
 export default function Detailed() {
 
@@ -17,15 +18,14 @@ export default function Detailed() {
 
     useEffect(() => {
         const fetchItem = async () => {
-            try {
-                if (itemId) {
-                    const response = await axios.get(`http://localhost:8082/api/items/${itemId}`)
-                    .then((res) => {     // handling promise from item read operation
-                        setItem(response.data);     // setting item with response 
-                    });
-                }
-            } catch (error) {
-                console.error('Retrieval failed:', error);
+            if (itemId) {
+                await axios.get(`http://localhost:8082/api/items/${itemId}`)
+                .then((res) => {     // handling promise from item read operation
+                    setItem(res.data);     // setting item with response 
+                })
+                .catch((error) => {
+                    console.error('Retrieval failed:', error);
+                });
             }
         };
         fetchItem(); // Call fetchItem function

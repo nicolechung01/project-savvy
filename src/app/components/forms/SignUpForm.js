@@ -64,51 +64,50 @@ const SignUpForm = () => {
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-        try {
-            if (!formData.email || !formData.password || !formData.username || !formData.confirmPassword) {
-                setError("Please fill in all fields");
-            }
-            if (formData.password.length < 6) {
-                setError("Password should be at least 6 characters");
-            }
-            if (formData.confirmPassword !== formData.password) {
-                setError("Passwords do not match");
-            }
-            await axios.post('http://localhost:8082/api/users/signup', formData);
-            const loginRes = await axios.post('http://localhost:8082/api/users/login', {
-                email: formData.email,
-                password: formData.password
-            })
-            .then((res) => {        // handling promise from login post operation
-                setUserData({       // setting userData with res
-                    token: loginRes.data.token,
-                    user: loginRes.data.user,
-                });
-                localStorage.setItem("auth-token", loginRes.data.token);
-                localStorage.setItem('auth-user', JSON.stringify(loginRes.data.user)); // Stringify user data
+        
+        if (!formData.email || !formData.password || !formData.username || !formData.confirmPassword) {
+            setError("Please fill in all fields");
+        }
+        if (formData.password.length < 6) {
+            setError("Password should be at least 6 characters");
+        }
+        if (formData.confirmPassword !== formData.password) {
+            setError("Passwords do not match");
+        }
+        await axios.post('http://localhost:8082/api/users/signup', formData);
+        await axios.post('http://localhost:8082/api/users/login', {
+            email: formData.email,
+            password: formData.password
+        })
+        .then((loginRes) => {        // handling promise from login post operation
+            setUserData({       // setting userData with res
+                token: loginRes.data.token,
+                user: loginRes.data.user,
             });
-            
-        } catch (error) {
+            localStorage.setItem("auth-token", loginRes.data.token);
+            localStorage.setItem('auth-user', JSON.stringify(loginRes.data.user)); // Stringify user data
+        })
+        .catch((error) => {
             console.error('Signup failed:', error);
             if (error.response && error.response.data && error.response.data.msg) {
                 setError(error.response.data.msg);
             } else {
                 setError('An unexpected error occurred. Please try again.');
             }   
-        }
+        });
     };
 
     const updateProfile = async (e) => {
         e.preventDefault();
-        try {
-            profileData.pfp = imageData;
-            await axios.put(`http://localhost:8082/api/users/${userId}`, profileData)
-            .then((res) => {        // handling promise from user update operation
-                router.push('/profile');    // routing to profile client route
-            })
-        } catch (error) {
+        
+        profileData.pfp = imageData;
+        await axios.put(`http://localhost:8082/api/users/${userId}`, profileData)
+        .then((res) => {        // handling promise from user update operation
+            router.push('/profile');    // routing to profile client route
+        })
+        .catch((error) => {
             console.log(error);
-        }
+        });
     }
 
     return (

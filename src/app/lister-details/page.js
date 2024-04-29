@@ -20,29 +20,27 @@ export default function ListerDetails() {
 
     useEffect(() => {
         const fetchItem = async () => {
-            try {
-                if (itemId) {
-                    const response = await axios.get(`http://localhost:8082/api/items/${itemId}`)
-                    .then((res) => {    // handling promise from item read operation
-                        setItem(response.data);     // setting item with response
-                    });
-                }
-            } catch (error) {
-                console.error('Retrieval failed:', error);
+            if (itemId) {
+                await axios.get(`http://localhost:8082/api/items/${itemId}`)
+                .then((res) => {    // handling promise from item read operation
+                    setItem(res.data);     // setting item with response
+                })
+                .catch((error) => {
+                    console.error('Retrieval failed:', error);
+                });
             }
         };
         fetchItem(); // Call fetchItem function
     }, [itemId]); // Pass itemId as a dependency to useEffect
 
     const deleteItem = async () => {
-        try {
-            await axios.delete(`http://localhost:8082/api/items/${itemId}`)
-            .then((rest) => {       // handling promise from item delete operation
-                router.push('/profile');    // routing back to profile client route
-            })
-        } catch (error) {
+        await axios.delete(`http://localhost:8082/api/items/${itemId}`)
+        .then((rest) => {       // handling promise from item delete operation
+            router.push('/profile');    // routing back to profile client route
+        })
+        .catch((error) => {
             console.log(error);
-        }
+        });
     };
     
     return (

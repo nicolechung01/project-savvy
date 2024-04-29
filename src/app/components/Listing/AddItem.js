@@ -80,34 +80,31 @@ const AddItem = () => {
     const submitHandler = async (event) => {
         
         event.preventDefault();
-        try {
-            formData.img1 = imageData1;
-            formData.img2 = imageData2;
-            formData.img3 = imageData3;
-            formData.img4 = imageData4;
-            formData.user_id = userId;
-            await axios.post('http://localhost:8082/api/items/listing', formData) //add to db
-            .then((res) => {        // handling promise from item create operation
-                router.push('/profile'); // back to profile
-            })
-        } catch (error) {
+        formData.img1 = imageData1;
+        formData.img2 = imageData2;
+        formData.img3 = imageData3;
+        formData.img4 = imageData4;
+        formData.user_id = userId;
+        await axios.post('http://localhost:8082/api/items/listing', formData) //add to db
+        .then((res) => {        // handling promise from item create operation
+            setFormData({
+                name: '',
+                img1: '',
+                img2: '',
+                img3: '',
+                img4: '',
+                description: '',
+                category: '',
+                brand: '',
+                size: '',
+                condition: '',
+                price: '',
+            });
+            router.push('/profile'); // back to profile
+        })
+        .catch((error) => {
             console.error('failed:', error);
-        }   
-
-        setFormData({
-            name: '',
-            img1: '',
-            img2: '',
-            img3: '',
-            img4: '',
-            description: '',
-            category: '',
-            brand: '',
-            size: '',
-            condition: '',
-            price: '',
         });
-
     };
 
     return (

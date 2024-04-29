@@ -57,40 +57,39 @@ const AccountUpdateForm = () => {
 
     const updateAccount = async (e) => {
         e.preventDefault();
-        try {
-            if (imageData !== '') {
-                accountData.pfp = imageData;
-            }
-            
-            const filteredAccountData = Object.fromEntries(
-                Object.entries(accountData).filter(([key, value]) => value !== '')
-            );
-            
-            const requestBody = {
-                ...filteredAccountData,
-            }
-            await axios.put(`http://localhost:8082/api/users/${userId}`, requestBody)
-            .then((res) => {        // handling promise from user update operation
-                router.push('/profile');    // routing to profile client route
-            })
-        } catch (error) {
-            console.log(error);
+        if (imageData !== '') {
+            accountData.pfp = imageData;
         }
+        
+        const filteredAccountData = Object.fromEntries(
+            Object.entries(accountData).filter(([key, value]) => value !== '')
+        );
+        
+        const requestBody = {
+            ...filteredAccountData,
+        }
+        await axios.put(`http://localhost:8082/api/users/${userId}`, requestBody)
+        .then((res) => {        // handling promise from user update operation
+            router.push('/profile');    // routing to profile client route
+        })
+        .catch((error) => {
+            console.log(error);
+        });
     }
     
     const deleteAccount = async (e) => {
-        try {
-            await axios.delete(`http://localhost:8082/api/items/user/${userId}`);
-            await axios.delete(`http://localhost:8082/api/users/${userId}`)
-            .then((res) => {    // handling promise from user delete operation
-                setUserData({ token: undefined, user: undefined });     // resetting userData
-                localStorage.removeItem('auth-token');                  // removing token and user from local storage
-                localStorage.removeItem('auth-user');
-                router.push('/');                                       // routing to home route (unauthenticated view landing page)
-            })
-        } catch (error) {
+        
+        await axios.delete(`http://localhost:8082/api/items/user/${userId}`);
+        await axios.delete(`http://localhost:8082/api/users/${userId}`)
+        .then((res) => {    // handling promise from user delete operation
+            setUserData({ token: undefined, user: undefined });     // resetting userData
+            localStorage.removeItem('auth-token');                  // removing token and user from local storage
+            localStorage.removeItem('auth-user');
+            router.push('/');                                      // routing to home route (unauthenticated view landing page)
+        })
+        .catch((error) => {
             console.log(error);
-        }
+        });
     }
 
     return (

@@ -85,50 +85,46 @@ export default function ItemUpdate() {
     const updateItem = async (event) => {
         event.preventDefault();
         console.log(formData);
-        try {
-            if (imageData1 !== '') {
-                formData.img1 = imageData1;
-            }
-            if (imageData2 !== '') {
-                formData.img2 = imageData2;
-            }
-            if (imageData3 !== '') {
-                formData.img3 = imageData3;
-            }
-            if (imageData1 !== '') {
-                formData.img4 = imageData4;
-            }
-            console.log(formData);
-            const filteredFormData = Object.fromEntries(
-                Object.entries(formData).filter(([key, value]) => value !== '')
-            );
-            
-            const requestBody = {
-                ...filteredFormData,
-            }
-            console.log(requestBody);
-            await axios.put(`http://localhost:8082/api/items/${itemId}`, requestBody) //update to db
-            .then((res) => {        // handling promise from item update operation
-                router.push('/profile');    // back to profile
-            })
-        } catch (error) {
+        if (imageData1 !== '') {
+            formData.img1 = imageData1;
+        }
+        if (imageData2 !== '') {
+            formData.img2 = imageData2;
+        }
+        if (imageData3 !== '') {
+            formData.img3 = imageData3;
+        }
+        if (imageData1 !== '') {
+            formData.img4 = imageData4;
+        }
+        console.log(formData);
+        const filteredFormData = Object.fromEntries(
+            Object.entries(formData).filter(([key, value]) => value !== '')
+        );
+        
+        const requestBody = {
+            ...filteredFormData,
+        }
+        await axios.put(`http://localhost:8082/api/items/${itemId}`, requestBody) //update to db
+        .then((res) => {        // handling promise from item update operation
+            setFormData({
+                name: '',
+                img1: '',
+                img2: '',
+                img3: '',
+                img4: '',
+                description: '',
+                category: '',
+                brand: '',
+                size: '',
+                condition: '',
+                price: '',
+            });
+            router.push('/profile');    // back to profile
+        })
+        .catch((error) => {
             console.error('failed:', error);
-        }   
-
-        setFormData({
-            name: '',
-            img1: '',
-            img2: '',
-            img3: '',
-            img4: '',
-            description: '',
-            category: '',
-            brand: '',
-            size: '',
-            condition: '',
-            price: '',
-        });
-
+        });   
     };
 
     return (
